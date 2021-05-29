@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace School_Dashboard
 {
-    public partial class WebForm21 : System.Web.UI.Page
+    public partial class WebForm20 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ( Universal.MasterAccess == false)
+            if (Universal.FacultyAccess == false && Universal.MasterAccess == false)
             {
 
                 Response.Redirect("frmMain.aspx");

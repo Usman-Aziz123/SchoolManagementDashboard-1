@@ -14,6 +14,12 @@ namespace School_Dashboard
         clsFaculty fac = new clsFaculty();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ( Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             lbl_jd.Text = DateTime.Now.ToShortDateString();
         }
 

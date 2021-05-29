@@ -13,6 +13,12 @@ namespace School_Dashboard
         clsExam exam = new clsExam();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ( Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             cal_sd.Visible = false;
             cal_ed.Visible = false;
         }

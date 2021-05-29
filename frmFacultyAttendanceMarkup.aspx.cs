@@ -14,6 +14,12 @@ namespace School_Dashboard
         clsFacultyAttendance fas = new clsFacultyAttendance();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ( Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             lbl_dd.Text = DateTime.Now.ToShortDateString();
         }
 

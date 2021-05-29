@@ -13,9 +13,11 @@ namespace School_Dashboard
         School_CL.clsCourse crs = new School_CL.clsCourse();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Universal.MasterAccess == false)
             {
 
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
             }
 
         }

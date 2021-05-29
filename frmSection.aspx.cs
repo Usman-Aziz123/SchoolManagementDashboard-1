@@ -13,6 +13,12 @@ namespace School_Dashboard
         School_CL.clsSection sec = new School_CL.clsSection();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             if (!IsPostBack)
             {
                

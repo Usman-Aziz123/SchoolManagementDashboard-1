@@ -1,4 +1,5 @@
-﻿using System;
+﻿using School_CL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,12 @@ namespace School_Dashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Universal.MasterAccess == false)
+            {
 
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
         }
     }
 }

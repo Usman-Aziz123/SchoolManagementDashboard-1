@@ -12,7 +12,7 @@ namespace School_CL
     {
         public static int ID;
         public static string Name;
-        public static Boolean New,Old,MasterAccess;
+        public static Boolean New,Old,MasterAccess=false,FacultyAccess=false,StudentAccess=false;
         public static int SID, FID, AID;
     }
 }

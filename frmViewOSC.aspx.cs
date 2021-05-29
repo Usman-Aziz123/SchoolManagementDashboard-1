@@ -14,6 +14,12 @@ namespace School_Dashboard
         clsOpeningSession os = new clsOpeningSession();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             LoadHeaderData();
         }
 

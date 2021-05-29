@@ -36,7 +36,9 @@ namespace School_Dashboard
                 if (pass == txt_pass.Text)
                 {
                     Session["New"] = txt_fid.Text;
+                    Universal.FacultyAccess = true;
                     Response.Redirect("frmMain.aspx");
+                   
                     Response.Write("<b>Login Successful</b>");
 
                 }

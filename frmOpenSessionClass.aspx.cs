@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using School_CL;
 
 namespace School_Dashboard
 {
@@ -16,6 +17,12 @@ namespace School_Dashboard
         School_CL.clsOpeningSession OS = new School_CL.clsOpeningSession();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             if (ViewState["Records"] == null)
             {
                 dt.Columns.Add("Section");

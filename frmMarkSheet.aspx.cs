@@ -12,7 +12,12 @@ namespace School_Dashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Universal.FacultyAccess == false && Universal.MasterAccess == false && Universal.StudentAccess==false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)

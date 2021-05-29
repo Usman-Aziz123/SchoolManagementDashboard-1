@@ -13,19 +13,16 @@ namespace School_Dashboard
         School_CL.clsClass cls = new School_CL.clsClass();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Universal.Old = false;
-            if(Session["ID"]==null && Universal.MasterAccess != true)
-            {
-                Response.Redirect("frmLogin.aspx");
-
-            }
-
-            else if (Session["ID"] !=null)
+            if (Universal.MasterAccess == false)
             {
 
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
             }
         }
 
+          
+        
         protected void btn_save_Click(object sender, EventArgs e)
         {
            

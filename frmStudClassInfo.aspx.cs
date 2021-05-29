@@ -15,6 +15,12 @@ namespace School_Dashboard
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Universal.FacultyAccess == false && Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
             txt_sid.Text = Universal.ID.ToString();
         }
 

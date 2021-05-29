@@ -18,6 +18,12 @@ namespace School_Dashboard
         {
             //cal_adm.Visible = false;
             //cal_dob.Visible = false;
+            if (Universal.MasterAccess == false)
+            {
+
+                Response.Redirect("frmMain.aspx");
+                Response.Write("Invalid Access");
+            }
 
             if (!IsPostBack)
             {
