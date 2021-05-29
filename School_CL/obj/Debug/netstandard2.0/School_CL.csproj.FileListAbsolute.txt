@@ -1,0 +1,15 @@
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\School_CL.deps.json
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\School_CL.dll
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\School_CL.pdb
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\HP\source\repos\School_CL\bin\Debug\netstandard2.0\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.AssemblyInfo.cs
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.csproj.CopyComplete
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.dll
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.pdb
+C:\Users\HP\source\repos\School_CL\obj\Debug\netstandard2.0\School_CL.csprojAssemblyReference.cache
