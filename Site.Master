@@ -134,7 +134,7 @@
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a>
                             <div class="dropdown-divider"></div>
-                            <a href="login.html" class="dropdown-item">Logout</a>
+                            <a href="frmlogin.aspx" class="dropdown-item">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -150,7 +150,7 @@
                             <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                                 <li class="sidebar-list-item"><a href="frmStudents.aspx" class="sidebar-link text-muted pl-lg-5">Students Master Data</a></li>
                                 <li class="sidebar-list-item"><a href="frmStudClassInfo.aspx" class="sidebar-link text-muted pl-lg-5">Student Class Information</a></li>
-                                <li class="sidebar-list-item"><a href="frmStudAttendance.aspx" class="sidebar-link text-muted pl-lg-5">Student Attendance</a></li>
+                                <li class="sidebar-list-item"><a href="frmStudAttendanceMarkup.aspx" class="sidebar-link text-muted pl-lg-5">Student Attendance</a></li>
                                 <li class="sidebar-list-item"><a href="frmStudCE.aspx" class="sidebar-link text-muted pl-lg-5">Student Course Enrollment</a></li>
 
                             </ul>
@@ -161,8 +161,8 @@
                             <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                                 <li class="sidebar-list-item"><a href="frmFaculty.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Master Data</a></li>
                                 <li class="sidebar-list-item"><a href="frmFacultyAttendanceMarkup.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance</a></li>
-                                <li class="sidebar-list-item"><a href="frmFacultyAttendanceData.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance Data
-                                                              </a></li>
+                                <li class="sidebar-list-item"><a href="frmFacultyAttendanceReport.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance Data</a></li>
+                                 <li class="sidebar-list-item"><a href="frmFacultyDetails.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Details </a></li>
 
                             </ul>
                         </div>
@@ -180,6 +180,7 @@
                         <div id="pages1" class="collapse">
                             <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                                 <li class="sidebar-list-item"><a href="frmClass.aspx" class="sidebar-link text-muted pl-lg-5">Class</a></li>
+                                <li class="sidebar-list-item"><a href="frmClassDetails.aspx" class="sidebar-link text-muted pl-lg-5">Class Details</a></li>
                                 <li class="sidebar-list-item"><a href="frmCourse.aspx" class="sidebar-link text-muted pl-lg-5">Course</a></li>
                             </ul>
                         </div>
@@ -189,11 +190,28 @@
                 <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
                 <ul class="sidebar-menu list-unstyled">
                     <li class="sidebar-list-item"><a href="frmSession.aspx" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Session</span></a></li>
-                    <li class="sidebar-list-item"><a href="frmOpenSessionClass.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Open Class for Session</span></a></li>
+<%--                    <li class="sidebar-list-item"><a href="frmOpenSessionClass.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Open Class for Session</span></a></li>--%>
                     <li class="sidebar-list-item"><a href="frmSection.aspx" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Section</span></a></li>
                     <li class="sidebar-list-item"><a href="frmViewOSC.aspx" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>View OSC</span></a></li>
                 </ul>
+
+                    <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages5" aria-expanded="false" aria-controls="pages5" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Reports</span></a>
+                        <div id="pages5" class="collapse">
+                <ul class="sidebar-menu list-unstyled">                    
+
+                    <li class="sidebar-list-item"><a href="frmStudentsReport.aspx" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Students Report</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmRemainingStudents.aspx" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Remaining Students</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmStudentsAttendanceReport.aspx" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Students Attendance Report </span></a></li>
+                    <li class="sidebar-list-item"><a href="frmFacultyReport.aspx" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Faculty Report</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmRemainingFaculty.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Remaining Faculty</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmFacultyAttendanceReport.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Faculty Attendance Report</span></a></li>
+       </ul>
             </div>
+                        
+                        </li>
+                
+            </div>
+            
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
 

@@ -10,48 +10,23 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <div>
+
+
+                <table border="0" class="w-100" style="width: 88%">
+                    <tr>
+                        <td style="width: 452px">
+
+
+                <div style="width: 464px">
                     <asp:Label ID="lbl_name" runat="server" Text="Name"></asp:Label>
-                     <asp:TextBox ID="txt_name" runat="server" type="Name" placeholder="Name" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px"></asp:TextBox>
+                     <asp:TextBox ID="txt_name" runat="server" type="Name" placeholder="Name" class="form-control border-0 shadow form-control-lg text-violet" Width="450px"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorName" runat="server" ControlToValidate="txt_name" ErrorMessage="Name is Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
-                 <div>
-                    <asp:Label ID="lbl_address" runat="server" Text="Address"></asp:Label>
-                     <asp:TextBox ID="txt_address" runat="server" type="Name" placeholder="Address" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px" TextMode="MultiLine"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorAddress" runat="server" ErrorMessage="Address is Required" ControlToValidate="txt_address" ForeColor="Red"></asp:RequiredFieldValidator>
-                     </div>
-                 <div>
-                    <asp:Label ID="lbl_contact" runat="server" Text="Contact"></asp:Label>
-                     <asp:TextBox ID="txt_contact" runat="server" type="Name" placeholder="Contact" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px" TextMode="Phone"></asp:TextBox>
-                     <ajaxtoolkit:maskededitextender ID="txt_contact_MaskedEditExtender" runat="server" Mask="9999-9999999" MaskType="Number" TargetControlID="txt_contact" BehaviorID="txt_contact_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="" CultureTimePlaceholder="" />
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorContact" runat="server" ErrorMessage="Contact is Required" ControlToValidate="txt_contact" ForeColor="Red"></asp:RequiredFieldValidator>
-                 </div>
-                <br />
-                 <div>
-                    <asp:Label ID="lbl_qualification" runat="server" Text="Qualification"></asp:Label>
-                     <asp:DropDownList ID="DropDownQualification" runat="server" class="form-control border-0 shadow form-control-lg text-violet">
-                        <asp:ListItem>--Select--</asp:ListItem>
-                        <asp:ListItem>Active</asp:ListItem>
-                        <asp:ListItem>inActive</asp:ListItem>
-                    </asp:DropDownList>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorQualification" runat="server" ErrorMessage="Qualification is Required" ControlToValidate="DropDownQualification" ForeColor="Red"></asp:RequiredFieldValidator>
-                     </div>
-                <br />
-                 <div>
-                    <asp:Label ID="lbl_experience" runat="server" Text="Experience"></asp:Label>
-                    <asp:TextBox ID="txt_exp" runat="server" type="Name" placeholder="Experience" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorExp" runat="server" ErrorMessage="Experience is Required" ControlToValidate="txt_exp" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
-
-                 <div>
-                    <asp:Label ID="lbl_pass" runat="server" Text="Password"></asp:Label>
-                    <asp:TextBox ID="txt_pass" runat="server" type="Password" placeholder="Password" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px"></asp:TextBox>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPass" runat="server" ErrorMessage="Password is Required" ControlToValidate="txt_pass" ForeColor="Red"></asp:RequiredFieldValidator>
-                </div>
-<br />
+                        </td>
+                        <td>
                  <div>
                     <asp:Label ID="lbl_gender" runat="server" Text="Gender"></asp:Label>
-                   <asp:DropDownList ID="DropDownListGender" runat="server" class="form-control border-0 shadow form-control-lg text-violet">
+                   <asp:DropDownList ID="DropDownListGender" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="450px">
                         <asp:ListItem>--Select--</asp:ListItem>
                         <asp:ListItem>Male</asp:ListItem>
                         <asp:ListItem>FeMale</asp:ListItem>
@@ -59,12 +34,35 @@
                     <asp:RequiredFieldValidator ID="GenderValidator" runat="server" ErrorMessage="Gender is Required" ControlToValidate="DropDownListGender" ForeColor="Red"></asp:RequiredFieldValidator>
               
                      </div>
-                <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 452px">
+                 <div>
+                    <asp:Label ID="lbl_address" runat="server" Text="Address"></asp:Label>
+                     <asp:TextBox ID="txt_address" runat="server" type="Name" placeholder="Address" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" TextMode="MultiLine"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorAddress" runat="server" ErrorMessage="Address is Required" ControlToValidate="txt_address" ForeColor="Red"></asp:RequiredFieldValidator>
+                     </div>
+                        </td>
+                        <td>
                  <div>
                     <asp:Label ID="lbl_email" runat="server" Text="Email"></asp:Label>
-                     <asp:TextBox ID="txt_email" runat="server" type="Email" placeholder="Email" class="form-control border-0 shadow form-control-lg text-violet" Width="1202px" TextMode="Email"></asp:TextBox>
+                     <asp:TextBox ID="txt_email" runat="server" type="Email" placeholder="Email" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" TextMode="Email"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidatorEmail" runat="server" ErrorMessage="Email is Required" ControlToValidate="txt_email" ForeColor="Red"></asp:RequiredFieldValidator>
                  </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 452px">
+                 <div>
+                    <asp:Label ID="lbl_contact" runat="server" Text="Contact"></asp:Label>
+                     <asp:TextBox ID="txt_contact" runat="server" type="Name" placeholder="Contact" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" TextMode="Phone"></asp:TextBox>
+                     <ajaxtoolkit:maskededitextender ID="txt_contact_MaskedEditExtender" runat="server" Mask="9999-9999999" MaskType="Number" TargetControlID="txt_contact" BehaviorID="txt_contact_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="" CultureTimePlaceholder="" />
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorContact" runat="server" ErrorMessage="Contact is Required" ControlToValidate="txt_contact" ForeColor="Red"></asp:RequiredFieldValidator>
+                 </div>
+                        </td>
+                        <td>
 
                  <div>
                     <asp:Label ID="lbl_joindate" runat="server" Text="Join Date"></asp:Label>
@@ -73,23 +71,59 @@
                      <asp:Label ID="lbl_jd" runat="server"></asp:Label>
                      <br />
                      </div>
-                <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 452px">
+                 <div>
+                    <asp:Label ID="lbl_qualification" runat="server" Text="Qualification"></asp:Label>
+                     <asp:TextBox ID="txt_qual" runat="server" type="Name" placeholder="Qualification" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" ></asp:TextBox>
+                     <br />
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorQualification" runat="server" ErrorMessage="Qualification is Required" ControlToValidate="txt_qual" ForeColor="Red"></asp:RequiredFieldValidator>
+                     </div>
+                        </td>
+                        <td>
                  <div>
                     <asp:Label ID="lbl_status" runat="server" Text="Status"></asp:Label>
-                   <asp:DropDownList ID="DropDownListStatus" runat="server" class="form-control border-0 shadow form-control-lg text-violet">
+                   <asp:DropDownList ID="DropDownListStatus" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="450px">
                         <asp:ListItem>--Select--</asp:ListItem>
                         <asp:ListItem>Active</asp:ListItem>
                         <asp:ListItem>inActive</asp:ListItem>
                     </asp:DropDownList>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidatorStatus" runat="server" ErrorMessage="Status is Required" ControlToValidate="DropDownListStatus" ForeColor="Red"></asp:RequiredFieldValidator>
                      </div>
-                <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 452px">
+                 <div>
+                    <asp:Label ID="lbl_experience" runat="server" Text="Experience"></asp:Label>
+                    <asp:TextBox ID="txt_exp" runat="server" type="Name" placeholder="Experience" class="form-control border-0 shadow form-control-lg text-violet" Width="450px"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorExp" runat="server" ErrorMessage="Experience is Required" ControlToValidate="txt_exp" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+
+                        </td>
+                        <td>
 
                 <div>
                     <asp:Label ID="lbl_chk" runat="server" Text="IsVisiting"></asp:Label>
                     <asp:CheckBox ID="chkbox_vf" runat="server" BackColor="White" ForeColor="Black" />
 
                 </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 452px">
+
+                 <div>
+                    <asp:Label ID="lbl_pass" runat="server" Text="Password"></asp:Label>
+                    <asp:TextBox ID="txt_pass" runat="server" type="Password" placeholder="Password" class="form-control border-0 shadow form-control-lg text-violet" Width="450px"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorPass" runat="server" ErrorMessage="Password is Required" ControlToValidate="txt_pass" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
                 <br />
                   <div>
                     <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click"  />
