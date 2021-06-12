@@ -29,16 +29,16 @@ namespace School_Dashboard
             if (Session["_Upd_ID"] != null)
             {
                 //update
-                fac.UpdateFaculty(Convert.ToInt32(Session["_Upd_ID"]), txt_name.Text, txt_address.Text, txt_contact.Text, DropDownQualification.Text, txt_exp.Text,txt_pass.Text,DropDownListGender.Text, txt_email.Text,Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
+                fac.UpdateFaculty(Convert.ToInt32(Session["_Upd_ID"]), txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text,txt_pass.Text,DropDownListGender.Text, txt_email.Text,Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
 
                 Response.Write("<b>Data Updated<b>");
             }
             else
             {
                 //add
-                fac.InsertFaculty(txt_name.Text, txt_address.Text, txt_contact.Text,  DropDownQualification.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text,Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
+                fac.InsertFaculty(txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text,Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
                 Response.Write("<script>alert('<b>Data Saved<b>')</script>");
-                Response.Redirect("frmFacultyDetails.aspx");
+                
 
             }
             GridViewFaculty.DataBind();
@@ -51,8 +51,7 @@ namespace School_Dashboard
             txt_address.Text = "";
             DropDownListGender.Text = "Default";
             DropDownListStatus.Text = "Default";
-           
-            DropDownQualification.Text = "Default";
+            txt_qual.Text = "";
             chkbox_vf.Checked = false;
 
             GridViewFaculty.SelectedIndex = -1;
@@ -69,7 +68,7 @@ namespace School_Dashboard
                 txt_name.Text = GridViewFaculty.SelectedRow.Cells[2].Text;
                 txt_address.Text = GridViewFaculty.SelectedRow.Cells[3].Text;
                 txt_contact.Text = GridViewFaculty.SelectedRow.Cells[4].Text;
-                DropDownQualification.Text = GridViewFaculty.SelectedRow.Cells[5].Text;
+                txt_qual.Text = GridViewFaculty.SelectedRow.Cells[5].Text;
                 txt_exp.Text = GridViewFaculty.SelectedRow.Cells[6].Text;
                 txt_pass.Text = GridViewFaculty.SelectedRow.Cells[7].Text;
                 DropDownListGender.Text = GridViewFaculty.SelectedRow.Cells[8].Text;

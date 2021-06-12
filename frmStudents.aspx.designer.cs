@@ -51,6 +51,42 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.RequiredFieldValidator SNameValidator;
 
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// txt_contact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_contact;
+
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// MaskedEditExtender1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
+
+        /// <summary>
         /// lbl_fname control.
         /// </summary>
         /// <remarks>
@@ -76,6 +112,33 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator FNameValidator;
+
+        /// <summary>
+        /// lbl_pass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_pass;
+
+        /// <summary>
+        /// txt_pass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_pass;
+
+        /// <summary>
+        /// PassValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PassValidator;
 
         /// <summary>
         /// lbl_gender control.
@@ -105,42 +168,6 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.RequiredFieldValidator GenderValidator;
 
         /// <summary>
-        /// lbl_contact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_contact;
-
-        /// <summary>
-        /// txt_contact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_contact;
-
-        /// <summary>
-        /// txt_contact_MaskedEditExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender txt_contact_MaskedEditExtender;
-
-        /// <summary>
-        /// ContactValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator ContactValidator;
-
-        /// <summary>
         /// lbl_address control.
         /// </summary>
         /// <remarks>
@@ -168,51 +195,6 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.RequiredFieldValidator AddressValidator;
 
         /// <summary>
-        /// lbl_cnic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cnic;
-
-        /// <summary>
-        /// txt_cnic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_cnic;
-
-        /// <summary>
-        /// txt_cnic_MaskedEditExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.MaskedEditExtender txt_cnic_MaskedEditExtender;
-
-        /// <summary>
-        /// CNICValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator CNICValidator;
-
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-
-        /// <summary>
         /// lbl_dob control.
         /// </summary>
         /// <remarks>
@@ -231,13 +213,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.TextBox txt_dob;
 
         /// <summary>
-        /// imgbtn_cal_dob control.
+        /// Imagebtn_cal_dob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgbtn_cal_dob;
+        protected global::System.Web.UI.WebControls.ImageButton Imagebtn_cal_dob;
 
         /// <summary>
         /// lbl_year control.
@@ -247,15 +229,6 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_year;
-
-        /// <summary>
-        /// DropDownYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownYear;
 
         /// <summary>
         /// lbl_month control.
@@ -276,6 +249,15 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownMonth;
 
         /// <summary>
+        /// DropDownYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownYear;
+
+        /// <summary>
         /// cal_dob control.
         /// </summary>
         /// <remarks>
@@ -285,31 +267,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Calendar cal_dob;
 
         /// <summary>
-        /// lbl_age control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_age;
-
-        /// <summary>
-        /// txt_age control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_age;
-
-        /// <summary>
-        /// AgeValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AgeValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// lbl_admission control.
@@ -357,31 +321,31 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ADValidator;
 
         /// <summary>
-        /// lbl_pass control.
+        /// lbl_age control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_pass;
+        protected global::System.Web.UI.WebControls.Label lbl_age;
 
         /// <summary>
-        /// txt_pass control.
+        /// txt_age control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_pass;
+        protected global::System.Web.UI.WebControls.TextBox txt_age;
 
         /// <summary>
-        /// PassValidator control.
+        /// AgeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator PassValidator;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AgeValidator;
 
         /// <summary>
         /// lbl_Status control.
@@ -409,6 +373,51 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
+
+        /// <summary>
+        /// lbl_cnic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_cnic;
+
+        /// <summary>
+        /// txt_cnic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_cnic;
+
+        /// <summary>
+        /// CNICValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CNICValidator;
+
+        /// <summary>
+        /// txt_cnic_MaskedEditExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender txt_cnic_MaskedEditExtender;
+
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// btn_save control.

@@ -16,8 +16,12 @@ namespace School_Dashboard
         School_CL.clsStudents student = new School_CL.clsStudents();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //cal_adm.Visible = false;
-            //cal_dob.Visible = false;
+            cal_adm.Visible = false;
+            cal_dob.Visible = false;
+            lbl_month.Visible = false;
+            lbl_year.Visible = false;
+            DropDownMonth.Visible = false;
+            DropDownYear.Visible = false;
             if (Universal.MasterAccess == false)
             {
 
@@ -81,22 +85,27 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
+            try
+                {
 
-            
-            if (Session["_Upd_ID"] != null)
-            {
-                //update
-                student.UpdateStudent(Convert.ToInt32(Session["_Upd_ID"]), txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
+                if (Session["_Upd_ID"] != null)
+                {
+                    //update
+                    student.UpdateStudent(Convert.ToInt32(Session["_Upd_ID"]), txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
 
-                Response.Write("<b>Data Updated<b>");
+                    Response.Write("<b>Data Updated<b>");
+                }
+                else
+                {
+                    //add
+                    student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
+                    Response.Write("<script>alert('Data Saved')</script>");
+                   
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //add
-                student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
-                Response.Write("<script>alert('Data Saved')</script>");
-                Response.Redirect("frmStudClassInfo.aspx");
-
+                
             }
             GridViewStudents.DataBind();
 
@@ -115,7 +124,6 @@ namespace School_Dashboard
 
             GridViewStudents.SelectedIndex = -1;
 
-        //Response.Redirect("frmStudClassInfo.aspx");
         }
 
         protected void cal_dob_SelectionChanged(object sender, EventArgs e)
@@ -223,6 +231,16 @@ namespace School_Dashboard
             {
                 cal_adm.Visible = true;
             }
+        }
+
+        protected void txt_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txt_address_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace School_Dashboard
 {
 
 
-    public partial class WebForm19
+    public partial class WebForm23
     {
 
         /// <summary>
@@ -24,31 +24,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// lbl_name control.
+        /// lbl_cname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_name;
-
-        /// <summary>
-        /// txt_fid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_fid;
-
-        /// <summary>
-        /// lbl_class control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_class;
+        protected global::System.Web.UI.WebControls.Label lbl_cname;
 
         /// <summary>
         /// DropDownListClass control.
@@ -69,13 +51,13 @@ namespace School_Dashboard
         protected global::AjaxControlToolkit.CascadingDropDown DropDownListClass_CascadingDropDown;
 
         /// <summary>
-        /// lbl_section control.
+        /// lbl_sname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_section;
+        protected global::System.Web.UI.WebControls.Label lbl_sname;
 
         /// <summary>
         /// DropDownListSection control.
@@ -96,49 +78,22 @@ namespace School_Dashboard
         protected global::AjaxControlToolkit.CascadingDropDown DropDownListSection_CascadingDropDown;
 
         /// <summary>
-        /// Label1 control.
+        /// btn_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btn_Add;
 
         /// <summary>
-        /// DropDownListCourses control.
+        /// GridViewDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCourses;
-
-        /// <summary>
-        /// DropDownListCourses_CascadingDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CascadingDropDown DropDownListCourses_CascadingDropDown;
-
-        /// <summary>
-        /// btn_add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_add;
-
-        /// <summary>
-        /// GridViewFC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewFC;
+        protected global::System.Web.UI.WebControls.GridView GridViewDetails;
 
         /// <summary>
         /// btn_save control.
@@ -150,21 +105,30 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Button btn_save;
 
         /// <summary>
-        /// GridViewFacDetails control.
+        /// lbl_cdid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewFacDetails;
+        protected global::System.Web.UI.WebControls.Label lbl_cdid;
 
         /// <summary>
-        /// SqlDataSource4 control.
+        /// GridViewClassDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+        protected global::System.Web.UI.WebControls.GridView GridViewClassDetails;
+
+        /// <summary>
+        /// SqlDataSource3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
     }
 }
