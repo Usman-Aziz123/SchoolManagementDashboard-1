@@ -25,6 +25,12 @@ namespace School_CL
             db.ExecuteNonQuery("sp_UpdateStudStatus", new object[] { id, fid, dd, status });
         }
 
+        public DataTable GetStudentDetails(int cid,int sid)
+        {
+            return db.ExecuteDataSet("sp_GetStudDetails", new object[] { cid,sid }).Tables[0];
+        }
+
+
         //public DataTable GetAbsesntDays()
         //{
         //    return db.ExecuteDataSet("sp_GetFacAbsentDays").Tables[0];

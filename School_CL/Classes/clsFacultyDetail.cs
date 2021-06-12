@@ -14,11 +14,11 @@ namespace School_CL.Classes
 
         public void InsertFacultyDetail(int fid, int Cid, int corid,int sid)
         {
-            db.ExecuteNonQuery("Sp_InsertFacDetails", new object[] { Convert.ToInt32(fid.ToString()), Convert.ToInt32(Cid.ToString()) });
+            db.ExecuteNonQuery("Sp_InsertFacDetails", new object[] { Convert.ToInt32(fid.ToString()), Convert.ToInt32(Cid.ToString()),Convert.ToInt32(corid.ToString()),Convert.ToInt32(sid.ToString()) });
         }
         public void UpdateFacultyDetail(int id, int fid, int Cid, int corid, int sid)
         {
-            db.ExecuteNonQuery("sp_UpdateFacDetails", new object[] { id, Convert.ToInt32(fid.ToString()), Convert.ToInt32(Cid.ToString()) });
+            db.ExecuteNonQuery("sp_UpdateFacDetails", new object[] { id, Convert.ToInt32(fid.ToString()), Convert.ToInt32(Cid.ToString()),Convert.ToInt32(corid.ToString()), Convert.ToInt32(sid.ToString()) });
         }
     }
 }

@@ -24,7 +24,7 @@ namespace School_CL
 
         public void UpdateStudClassInfo(int id, int Sid, int Cid, int secid)
         {
-            db.ExecuteNonQuery("sp_UpdateStudent", new object[] { id, Convert.ToInt32(Sid.ToString()), Convert.ToInt32(Cid.ToString()), Convert.ToInt32(secid.ToString())});
+            db.ExecuteNonQuery("[sp_UpdateStudClassInfo]", new object[] { id, Convert.ToInt32(Sid.ToString()), Convert.ToInt32(Cid.ToString()), Convert.ToInt32(secid.ToString())});
         }
     }
 }

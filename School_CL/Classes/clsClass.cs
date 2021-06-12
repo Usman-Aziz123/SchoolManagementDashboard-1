@@ -19,13 +19,22 @@ namespace School_CL
             return db.ExecuteDataSet("sp_GetClass").Tables[0];
         }
 
-        public void InsertClass(string cname, int sid, int secid)
+        public void InsertClass(string cname)
         {
-            db.ExecuteNonQuery("sp_InsertClass", new object[] { cname, sid, secid });
+            db.ExecuteNonQuery("sp_InsertClass", new object[] { cname });
         }
-        public void UpdateClass(int id, string name, int sid, int secid)
+        public void UpdateClass(int id, string name)
         {
-            db.ExecuteNonQuery("sp_UpdateClass", new object[] { id, name, sid, secid });
+            db.ExecuteNonQuery("sp_UpdateClass", new object[] { id, name });
         }
+        public void InsertClassDetails(int cid,int secid,int courseid,int stid)
+        {
+            db.ExecuteNonQuery("sp_InsertClassDetails", new object[] { cid,secid,courseid,stid });
+        }
+        public void UpdateClassDetails(int id,int cid, int secid, int courseid, int stid)
+        {
+            db.ExecuteNonQuery("sp_UpdateClass", new object[] {id, cid, secid, courseid, stid });
+        }
+
     }
 }

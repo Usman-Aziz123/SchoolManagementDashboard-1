@@ -40,5 +40,10 @@ namespace School_CL
         {
             db.ExecuteNonQuery("sp_UpdateFaculty", new object[] { id, Name, Address, Contact, Qual, exp, pass, Gender, Email, JD, Status, vf });
         }
+
+        public DataTable GetFacDetail(int fid,int cid, int secid, int corid)
+        {
+            return db.ExecuteDataSet("sp_GetFacDetails", new object[] { fid,cid,secid,corid }).Tables[0];
+        }
     }
 }
