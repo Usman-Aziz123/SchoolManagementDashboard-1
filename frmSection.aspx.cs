@@ -29,25 +29,30 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            
-
-            if (Session["_Upd_ID"] != null)
+            try
             {
-                //update
-                //section.UpdateSection(Convert.ToInt32(Session["_Upd_ID"])); by Umer Ikhlas
-                sec.UpdateSection(Convert.ToInt32(Session["_Upd_ID"]), txt_Sectionname.Text);
-                Response.Write("Data Updated");
+
+                if (Session["_Upd_ID"] != null)
+                {
+                    //update
+                    //section.UpdateSection(Convert.ToInt32(Session["_Upd_ID"])); by Umer Ikhlas
+                    sec.UpdateSection(Convert.ToInt32(Session["_Upd_ID"]), txt_Sectionname.Text);
+                    Response.Write("Data Updated");
+                }
+                else
+                {
+                    //add
+                    // section.AddSection(); //Umer IKhlas
+                    sec.InsertSection(txt_Sectionname.Text);
+                    Response.Write("<script>alert('Section Created')</script>");
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //add
-                // section.AddSection(); //Umer IKhlas
-                sec.InsertSection(txt_Sectionname.Text);
-                Response.Write("<script>alert('Section Created')</script>");
 
             }
-
-            GridViewSection.DataBind();
+                GridViewSection.DataBind();
             txt_Sectionname.Text="";
 
             GridViewSection.SelectedIndex = -1;

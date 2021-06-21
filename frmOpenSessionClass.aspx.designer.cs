@@ -69,6 +69,15 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListClass;
 
         /// <summary>
+        /// DropDownListClass_CascadingDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListClass_CascadingDropDown;
+
+        /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
+
+        /// <summary>
+        /// DropDownListSection_CascadingDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListSection_CascadingDropDown;
 
         /// <summary>
         /// lbl_course control.

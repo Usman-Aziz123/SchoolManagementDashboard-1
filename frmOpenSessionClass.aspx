@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmOpenSessionClass.aspx.cs" Inherits="School_Dashboard.WebForm14" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
@@ -36,9 +38,13 @@
                     </asp:SqlDataSource>
                 </div>
                 <br />
-                <div>
+                <div class="form-group">
                     <asp:Label ID="lbl_class" runat="server" Text="Class"></asp:Label>
-                    <asp:DropDownList ID="DropDownListClass" runat="server" DataTextField="ClassName" DataValueField="ClassID" Width="179px" class="form-control border-0 shadow form-control-lg text-violet" OnSelectedIndexChanged="DropDownListClass_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownListClass" runat="server" DataTextField="ClassName" DataValueField="ClassID" Width="179px"  OnSelectedIndexChanged="DropDownListClass_SelectedIndexChanged"></asp:DropDownList>
+
+                    <ajaxToolkit:CascadingDropDown ID="DropDownListClass_CascadingDropDown" runat="server" BehaviorID="DropDownListClass_CascadingDropDown" TargetControlID="DropDownListClass" Category="Class"  LoadingText="Loading Class" PromptText="Select Class" ServiceMethod="BindAdmClass" ServicePath="~/WebServiceCascading.asmx">
+                    </ajaxToolkit:CascadingDropDown>
+                    <br />
 
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListClass" ErrorMessage="Class is Required" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -48,12 +54,14 @@
                 
                 <h2><b><u>Detail Information</u></b></h2>
 
-                <div>
+                <div class="form-group">
                     <asp:Label ID="Label1" runat="server" Text="Section Name"></asp:Label>
                     <asp:DropDownList ID="DropDownListSection" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="176px" DataTextField="SectionName" DataValueField="SectionID" AutoPostBack="True" ></asp:DropDownList>
+                    <ajaxToolkit:CascadingDropDown ID="DropDownListSection_CascadingDropDown" Category="Section" runat="server" BehaviorID="DropDownList2_CascadingDropDown" TargetControlID="DropDownListSection" LoadingText="Loading Section" PromptText="Select Section" ServiceMethod="BindAdmSection" ServicePath="~/WebServiceCascading.asmx" ParentControlID="DropDownListClass">
+                    </ajaxToolkit:CascadingDropDown>
                 </div>
                 <br />
-                <div>
+                <div class="form-group">
                     <asp:Label ID="lbl_course" runat="server" Text="Course"></asp:Label>
                     <asp:DropDownList ID="DropDownListCourse" runat="server" DataSourceID="SqlDataSource2" class="form-control border-0 shadow form-control-lg text-violet" DataTextField="CourseName" DataValueField="CourseID" Width="179px"></asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListCourse" ErrorMessage="Course is Required" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -92,7 +100,7 @@
                     <asp:Button ID="btn_add" runat="server" class="btn btn-primary shadow px-5" Text="Add" OnClick="btn_add_Click" />
                 </div>
                 <br />
-                <div>
+                <div class="form-group">
                     <asp:GridView ID="GridViewOpening" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" Height="76px" Width="432px" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <FooterStyle BackColor="#CCCCCC" />
@@ -106,8 +114,12 @@
                     </asp:GridView>
                 </div>
                 <br />
-                <div>
+                <div class="form-group">
                     <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" />
+
+                </div>
+                <br />
+                <div class="form-group">
 
                 </div>
             </div>

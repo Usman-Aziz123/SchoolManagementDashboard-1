@@ -168,6 +168,15 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Calendar cal_ed;
 
         /// <summary>
+        /// chbox_iscurrent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chbox_iscurrent;
+
+        /// <summary>
         /// btn_save control.
         /// </summary>
         /// <remarks>

@@ -14,17 +14,28 @@ namespace School_Dashboard
         clsFacultyAttendance fas = new clsFacultyAttendance();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ( Universal.MasterAccess == false)
+            
+            if ( Universal.MasterAccess == false || Universal.AttendanceAccess==false)
             {
 
                 Response.Redirect("frmMain.aspx");
                 Response.Write("Invalid Access");
             }
-            lbl_dd.Text = DateTime.Now.ToShortDateString();
+
+            DateTime value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1);
+            txt_dd.Text = value.ToShortDateString();
+
+
+            if (!IsPostBack)
+            {
+
+            }
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
+            //var result = (" select * from tbl_class where email =" + txt_class.Text);
+
             string a;
             if (btnrd_present.Checked == true)
             {
@@ -34,17 +45,24 @@ namespace School_Dashboard
             {
                 a = "Absent";
             }
+            try
+            {
+                if (Session["_Upd_ID"] != null)
+                {
+                    fas.UpdateStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
+                    Response.Write("Data Updated");
+                }
+                else
+                {
+                    fas.InsertStatus(Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
+                    Response.Write("<script>alert('Data Saved')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
 
-            if (Session["_Upd_ID"] != null)
-            {
-                fas.UpdateStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(lbl_dd.Text), a);
-                Response.Write("Data Updated");
             }
-            else
-            {
-                fas.InsertStatus(Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(lbl_dd.Text), a);
-                Response.Write("<script>alert('Data Saved')</script>");
-            }
+
             GridViewStatus.DataBind();
             btnrd_present.Checked = false;
             btnrd_absent.Checked = false;
@@ -53,26 +71,21 @@ namespace School_Dashboard
 
         protected void GridViewStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string b;
+          
             Session["_Upd_ID"] = GridViewStatus.SelectedRow.Cells[1].Text;
             if (GridViewStatus.Rows.Count < 0) { }
             else
             {
-                DropDownListFname.Text = GridViewStatus.SelectedRow.Cells[2].Text;
-                lbl_dd.Text = GridViewStatus.SelectedRow.Cells[3].Text;
-                if(btnrd_present.Checked)
-                {
-                    b= Convert.ToString(GridViewStatus.SelectedRow.Cells[4].Text);
-                }
-                else
-                {
-                   b= Convert.ToString(GridViewStatus.SelectedRow.Cells[4].Text);
-                }
-              
-             
-
+                DropDownListFname.Text = GridViewStatus.SelectedRow.Cells[1].Text;
+                lbl_dd.Text = GridViewStatus.SelectedRow.Cells[2].Text;
                 
-                
+                txt_dd.Visible = false;
             }
+        }
+
+        protected void txt_dd_TextChanged(object sender, EventArgs e)
+        {
+           
+
         }
     } }

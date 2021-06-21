@@ -37,7 +37,15 @@
                     </div>
                 <div>
                     <asp:Label ID="Label2" runat="server" Text="DateDay"></asp:Label>
-                    &nbsp;<asp:Label ID="lbl_dd" runat="server"></asp:Label>
+                    &nbsp;<table class="w-100" style="width: 38%">
+                        <tr>
+                            <td style="width: 3px"><asp:Label ID="lbl_dd" runat="server"></asp:Label>
+                            </td>
+                            <td style="width: 342px">
+                                <asp:TextBox ID="txt_dd" runat="server" CssClass="offset-sm-0" class="form-control border-0 shadow form-control-lg text-violet" OnTextChanged="txt_dd_TextChanged" TextMode="Date" ></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
                     <br />
                     <br />
                 </div>
@@ -62,12 +70,11 @@
                 <br />
 
                 <div>
-                    <asp:GridView ID="GridViewStatus" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical" DataKeyNames="FAStatusID" style="margin-top: 0px" OnSelectedIndexChanged="GridViewStatus_SelectedIndexChanged">
+                    <asp:GridView ID="GridViewStatus" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="SqlDataSource2" ForeColor="Black" GridLines="Vertical" style="margin-top: 0px" OnSelectedIndexChanged="GridViewStatus_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
-                            <asp:CommandField SelectText="*" ShowSelectButton="True" />
-                            <asp:BoundField DataField="FAStatusID" HeaderText="FAStatusID" SortExpression="FAStatusID" InsertVisible="False" ReadOnly="True" />
-                            <asp:BoundField DataField="FacultyID" HeaderText="FacultyID" SortExpression="FacultyID" />
+                            <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
+                            <asp:BoundField DataField="FacultyName" HeaderText="FacultyName" SortExpression="FacultyName" />
                             <asp:BoundField DataField="DateDay" HeaderText="DateDay" SortExpression="DateDay" />
                             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                         </Columns>
@@ -82,7 +89,7 @@
                     </asp:GridView>
 
                     
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT * FROM [tbl_FacultyAttendance]" DeleteCommand="DELETE FROM [tbl_FacultyAttendance] WHERE [FAStatusID] = @FAStatusID" InsertCommand="INSERT INTO [tbl_FacultyAttendance] ([FacultyID], [DateDay], [Status]) VALUES (@FacultyID, @DateDay, @Status)" UpdateCommand="UPDATE [tbl_FacultyAttendance] SET [FacultyID] = @FacultyID, [DateDay] = @DateDay, [Status] = @Status WHERE [FAStatusID] = @FAStatusID">
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT f.FacultyName,fa.DateDay,fa.Status FROM [tbl_FacultyAttendance] fa join tbl_faculty f on f.FacultyID=fa.FacultyID " DeleteCommand="DELETE FROM [tbl_FacultyAttendance] WHERE [FAStatusID] = @FAStatusID" InsertCommand="INSERT INTO [tbl_FacultyAttendance] ([FacultyID], [DateDay], [Status]) VALUES (@FacultyID, @DateDay, @Status)" UpdateCommand="UPDATE [tbl_FacultyAttendance] SET [FacultyID] = @FacultyID, [DateDay] = @DateDay, [Status] = @Status WHERE [FAStatusID] = @FAStatusID">
                         <DeleteParameters>
                             <asp:Parameter Name="FAStatusID" Type="Int32" />
                         </DeleteParameters>

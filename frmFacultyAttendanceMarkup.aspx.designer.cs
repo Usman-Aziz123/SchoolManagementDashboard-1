@@ -69,6 +69,15 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Label lbl_dd;
 
         /// <summary>
+        /// txt_dd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_dd;
+
+        /// <summary>
         /// btnrd_present control.
         /// </summary>
         /// <remarks>

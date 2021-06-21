@@ -31,9 +31,46 @@
           .auto-style1 {
               text-decoration: underline;
           }
+          .auto-style2 {
+              width: 100%;
+              height: 278px;
+              margin-bottom: 0px;
+          }
+          .auto-style4 {
+              height: 33px;
+          }
+          .auto-style5 {
+              height: 29px;
+          }
+          .auto-style6 {
+              height: 31px;
+          }
+          .auto-style7 {
+              height: 27px;
+          }
       </style>
   </head>
   <body>
+      <header class="header">
+            <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow">
+                <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="frmLogin.aspx" class="navbar-brand font-weight-bold text-uppercase text-base">Dashboard</a>
+                <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+                    <li class="nav-item">
+                        <div>
+                          <asp:HyperLink ID="HyperLink5" runat="server" href="frmApplicant.aspx" CssClass="auto-style1" Font-Size="XX-Small">Careers</asp:HyperLink>
+                        </div>
+                        </li>
+                    &nbsp;
+                     <li class="nav-item">
+                        <div>
+                          <asp:HyperLink ID="HyperLink4" runat="server" href="frmApplicant.aspx" CssClass="auto-style1" Font-Size="XX-Small">Online Admission</asp:HyperLink>
+                        </div>
+                        </li>
+                    </ul>
+                </nav>
+          </header>
+
+      <form id="form1" runat="server">
     <div class="page-holder d-flex align-items-center">
       <div class="container">
         <div class="row align-items-center py-5">
@@ -41,21 +78,72 @@
             <div class="pr-lg-5"><img src="img/illustration.svg" alt="" class="img-fluid"></div>
           </div>
           <div class="col-lg-5 px-lg-4">
+              <br />
+              <br />
+              <br />
+              <br />
             <h2 class="mb-4">Welcome!</h2>
-
-
-
-
-              <strong>
+              <br />
+              
+              <table border="0" class="auto-style2">
+                  <tr>
+                      <td class="auto-style5"><strong>
 
                   
                   <asp:HyperLink ID="HyperLink3" runat="server" href="frmAdminLogin.aspx" CssClass="auto-style1" Font-Bold="True" Font-Italic="False" Font-Size="X-Large">Admin Login</asp:HyperLink>
+
+              </strong>
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="auto-style4"><strong>
+
+                  
+            <asp:HyperLink ID="HyperLink1" runat="server" href="frmStudentLogin.aspx" CssClass="auto-style1" Font-Size="X-Large">Student Login</asp:HyperLink>
+
+              </strong>
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="auto-style6"><strong>
+
+                  
+            <asp:HyperLink ID="HyperLink2" runat="server" href="frmFacultyLogin.aspx" CssClass="auto-style1" Font-Size="X-Large">Faculty Login</asp:HyperLink>
+
+              </strong>
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="auto-style7">
+
+
+
+
+              
+              <strong>
+
+                  
+<%--                  <asp:HyperLink ID="HyperLink4" runat="server" href="frmApplicant.aspx" CssClass="auto-style1" Font-Size="XX-Small">Careers</asp:HyperLink>--%>
+
+              </strong>
+
+                      </td>
+                  </tr>
+              </table>
+              <strong>
+
+                  
                    <br />
               <br />
-            <asp:HyperLink ID="HyperLink1" runat="server" href="frmStudentLogin.aspx" CssClass="auto-style1" Font-Size="X-Large">Student Login</asp:HyperLink>
+
+                  
               <br />
               <br />
-            <asp:HyperLink ID="HyperLink2" runat="server" href="frmFacultyLogin.aspx" CssClass="auto-style1" Font-Size="X-Large">Faculty Login</asp:HyperLink>
+             <br />
+              <br />
 
               </strong>
 
@@ -77,6 +165,9 @@
               <button type="submit" class="btn btn-primary shadow px-5">Log in</button>
                   
             </form>--%>
+              <br />
+              <br />
+              <br />
           </div>
 
         </div>
@@ -92,5 +183,6 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="js/front.js"></script>
+      </form>
   </body>
 </html>

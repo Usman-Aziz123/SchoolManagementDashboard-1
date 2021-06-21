@@ -51,6 +51,7 @@
         <div class="form-group mb-4">
             <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="txt_pass" runat="server" placeholder="Password" class="form-control border-0 shadow form-control-lg" style="width: 40%" TextMode="Password"></asp:TextBox>
+            <input id="Checkbox1" type="checkbox" OnChange="document.getElementById('txt_pass').type=this.checked?'text':'Password'" />Show Password
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_pass" ErrorMessage="Password Required!" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
         </div>

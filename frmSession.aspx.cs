@@ -28,29 +28,35 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            
-
-            if (chkbox_iscurrent.Checked==true)
-            {         
-                chkbox_iscurrent.Checked = true;    
-            }
-            else
+            try
             {
-                chkbox_iscurrent.Checked = false;
-            }
 
-            if (Session["_Upd_ID"] != null)
-            {
-                //update
-                ses.UpdateSession(Convert.ToInt32(Session["_Upd_ID"]),txt_sessname.Text,Convert.ToString(chkbox_iscurrent.Checked));
+                if (chkbox_iscurrent.Checked == true)
+                {
+                    chkbox_iscurrent.Checked = true;
+                }
+                else
+                {
+                    chkbox_iscurrent.Checked = false;
+                }
 
-                Response.Write("Data Updated");
+                if (Session["_Upd_ID"] != null)
+                {
+                    //update
+                    ses.UpdateSession(Convert.ToInt32(Session["_Upd_ID"]), txt_sessname.Text, Convert.ToString(chkbox_iscurrent.Checked));
+
+                    Response.Write("Data Updated");
+                }
+                else
+                {
+                    //add
+                    ses.InsertSession(txt_sessname.Text, Convert.ToString(chkbox_iscurrent.Checked));
+                    Response.Write("<script>alert('Session Created')</script>");
+
+                }
             }
-            else
+            catch(Exception ex)
             {
-                //add
-                ses.InsertSession(txt_sessname.Text,Convert.ToString(chkbox_iscurrent.Checked));
-                Response.Write("<script>alert('Session Created')</script>");
 
             }
 

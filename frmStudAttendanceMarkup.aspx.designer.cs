@@ -24,85 +24,67 @@ namespace School_Dashboard
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// DropDownListClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListClass;
 
         /// <summary>
-        /// SqlDataSource2 control.
+        /// DropDownListClass_CascadingDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListClass_CascadingDropDown;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// DropDownListSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
 
         /// <summary>
-        /// Label1 control.
+        /// DropDownListSection_CascadingDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListSection_CascadingDropDown;
 
         /// <summary>
-        /// DropDownListStud control.
+        /// txt_dd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListStud;
+        protected global::System.Web.UI.WebControls.TextBox txt_dd;
 
         /// <summary>
-        /// SqlDataSource3 control.
+        /// lbl_sid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::System.Web.UI.WebControls.Label lbl_sid;
 
         /// <summary>
-        /// lbl_dd control.
+        /// btn_load control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dd;
-
-        /// <summary>
-        /// btnrd_present control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton btnrd_present;
-
-        /// <summary>
-        /// btnrd_absent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton btnrd_absent;
+        protected global::System.Web.UI.WebControls.Button btn_load;
 
         /// <summary>
         /// btn_Save control.
@@ -121,14 +103,5 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewStudMarkup;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

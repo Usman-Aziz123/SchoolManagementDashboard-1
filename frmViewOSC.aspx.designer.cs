@@ -24,13 +24,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// rpt_session_class control.
+        /// rpt_StudentDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpt_session_class;
+        protected global::System.Web.UI.WebControls.Repeater rpt_StudentDetail;
 
         /// <summary>
         /// LinkButton1 control.
@@ -67,5 +67,14 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpt_fac_course;
+
+        /// <summary>
+        /// rptr_FacultyDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptr_FacultyDetail;
     }
 }

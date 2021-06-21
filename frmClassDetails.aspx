@@ -14,13 +14,13 @@
                 <div class="form-group">
                     <asp:Label ID="lbl_cname" runat="server" Text="Class Name"></asp:Label>
                     <asp:DropDownList ID="DropDownListClass" runat="server" class="form-control border-0 shadow form-control-lg text-violet" placeholder="Select Class"></asp:DropDownList>
-                    <ajaxToolkit:CascadingDropDown ID="DropDownListClass_CascadingDropDown"  runat="server" Category="Class" BehaviorID="DropDownList1_CascadingDropDown" TargetControlID="DropDownListClass" LoadingText="Loading Class" PromptText="Select Class" ServiceMethod="BindAdmClass" ServicePath="~/WebServiceCascading.asmx">
+                    <ajaxToolkit:CascadingDropDown ID="DropDownListClass_CascadingDropDown"  runat="server" Category="Class" BehaviorID="DropDownList1_CascadingDropDown" TargetControlID="DropDownListClass" LoadingText="Loading Class" PromptText="Select Class" ServiceMethod="BindAllClass" ServicePath="~/WebServiceCascading.asmx">
                     </ajaxToolkit:CascadingDropDown>
                 </div>
                 <br /><div class="form-group">
                      <asp:Label ID="lbl_sname" runat="server" Text="Section Name"></asp:Label>
                     <asp:DropDownList ID="DropDownListSection" runat="server" class="form-control border-0 shadow form-control-lg text-violet" placeholder="Select Class"></asp:DropDownList>
-                     <ajaxToolkit:CascadingDropDown ID="DropDownListSection_CascadingDropDown" Category="Section" runat="server" BehaviorID="DropDownList2_CascadingDropDown" TargetControlID="DropDownListSection" LoadingText="Loading Section" PromptText="Select Section" ServiceMethod="BindAdmSection1" ServicePath="~/WebServiceCascading.asmx" ParentControlID="DropDownListClass">
+                     <ajaxToolkit:CascadingDropDown ID="DropDownListSection_CascadingDropDown" Category="Section" runat="server" BehaviorID="DropDownList2_CascadingDropDown" TargetControlID="DropDownListSection" LoadingText="Loading Section" PromptText="Select Section" ServiceMethod="BindAllSection" ServicePath="~/WebServiceCascading.asmx" ParentControlID="DropDownListClass">
                      </ajaxToolkit:CascadingDropDown>
                 </div>
                 
@@ -50,18 +50,13 @@
                 </div>
                 <br />
                  <div class="form-group">
-                     <asp:Label ID="lbl_cdid" runat="server" Text=""></asp:Label>
 
                      <asp:GridView ID="GridViewClassDetails" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ClassDetailsID" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridViewClassDetails_SelectedIndexChanged">
                          <AlternatingRowStyle BackColor="#CCCCCC" />
                          <Columns>
-                             <asp:TemplateField HeaderText="Select">
-                                 <ItemTemplate>
-                                     <asp:LinkButton ID="lbtn_cdID" runat="server">*</asp:LinkButton>
-                                 </ItemTemplate>
-
-                             </asp:TemplateField>
                              <asp:BoundField DataField="ClassDetailsID" HeaderText="ClassDetailsID" InsertVisible="False" ReadOnly="True" SortExpression="ClassDetailsID" />
+                             <asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" />
+                             <asp:BoundField DataField="SectionID" HeaderText="SectionID" SortExpression="SectionID" />
                          </Columns>
                          <FooterStyle BackColor="#CCCCCC" />
                          <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -72,7 +67,7 @@
                          <SortedDescendingCellStyle BackColor="#CAC9C9" />
                          <SortedDescendingHeaderStyle BackColor="#383838" />
                      </asp:GridView>
-                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT [ClassDetailsID] FROM [tbl_ClassDetails]"></asp:SqlDataSource>
+                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [tbl_ClassSectionDetails]"></asp:SqlDataSource>
                  </div>
 
                 </div>

@@ -12,7 +12,7 @@ namespace School_Dashboard
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-
+      int  studentid=0;
         School_CL.clsStudents student = new School_CL.clsStudents();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -85,27 +85,39 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
+            var result = (" select * from tbl_student where cnic =" + txt_cnic.Text);
+            studentid = GridViewStudents.SelectedRow != null ? Convert.ToInt32(GridViewStudents.SelectedRow.Cells[1].Text) : 0;
+
             try
+            {
+                if (IsValid)
                 {
+                    if (studentid != 0 && result == txt_cnic.Text)
+                    {
+                        //update
+                        student.UpdateStudent(studentid, txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
 
-                if (Session["_Upd_ID"] != null)
-                {
-                    //update
-                    student.UpdateStudent(Convert.ToInt32(Session["_Upd_ID"]), txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
+                        Response.Write("<b>Data Updated<b>");
+                    }
+                    else if (result != txt_cnic.Text)
+                    {
+                        //add
+                        student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
+                        Response.Write("<script>alert('Data Saved')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("Student Already Exist!!");
+                        //add
+                        //student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
+                        //Response.Write("<script>alert('Data Saved')</script>");
 
-                    Response.Write("<b>Data Updated<b>");
-                }
-                else
-                {
-                    //add
-                    student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
-                    Response.Write("<script>alert('Data Saved')</script>");
-                   
+                    }
                 }
             }
             catch (Exception ex)
             {
-                
+                Response.Write("Student Already Exist!!");
             }
             GridViewStudents.DataBind();
 
@@ -241,6 +253,19 @@ namespace School_Dashboard
         protected void txt_address_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void GridViewStudents_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            student.UpdateStudentStatus(Convert.ToInt32(Session["_Upd_ID"]), (DropDownListStatus.Text = "InActive"));
+            Response.Write("<script>alert('Status Updated')</script>");
+
+        }
+
+        protected void SqlDataSource1_Updating(object sender, SqlDataSourceCommandEventArgs e)
+        {
+            student.UpdateStudentStatus(Convert.ToInt32(Session["_Upd_ID"]), (DropDownListStatus.Text="InActive"));
+            Response.Write("<script>alert('Status Updated')</script>");
         }
     }
 }

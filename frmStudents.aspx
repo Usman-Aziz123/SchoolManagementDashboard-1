@@ -18,7 +18,8 @@
                             <td style="width: 456px">
                                
                                     <asp:Label ID="lbl_sname" runat="server" Text="Student Name"></asp:Label>
-                                    <asp:TextBox ID="txt_sname" runat="server" type="text" placeholder="Student Name" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" Style="margin-bottom: 0.4em"></asp:TextBox>
+                                    <asp:TextBox ID="txt_sname" runat="server" type="text" placeholder="Student Name"  class="form-control border-0 shadow form-control-lg text-violet"  Width="450px" Style="margin-bottom: 0.4em"></asp:TextBox>
+                                    <asp:Label ID="lbl_msg" runat="server" ForeColor="Red"></asp:Label>
                                     <asp:RequiredFieldValidator ID="SNameValidator" runat="server" ErrorMessage="Student Name is Required" ControlToValidate="txt_sname" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <br />
                             </td>
@@ -130,7 +131,7 @@
                                                         <asp:Label ID="lbl_Status" runat="server" Text="Status"></asp:Label>
                                                         &nbsp;<asp:DropDownList ID="DropDownListStatus" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="450px">
                                                             <asp:ListItem>Active</asp:ListItem>
-                                                            <asp:ListItem>inActive</asp:ListItem>
+                                                            <asp:ListItem>InActive</asp:ListItem>
                                                         </asp:DropDownList>
                                                         &nbsp;
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="DropDownListStatus" ErrorMessage="Status is Required" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -142,7 +143,6 @@
                                     <asp:TextBox ID="txt_cnic" runat="server" type="Cnic" placeholder="CNIC/B-Form" class="form-control border-0 shadow form-control-lg text-violet" MaxLength="15" Width="450px" Style="margin-bottom: 0.4em"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="CNICValidator" runat="server" ErrorMessage="CNIC/B-Form is Required" ControlToValidate="txt_cnic" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <ajaxToolkit:MaskedEditExtender ID="txt_cnic_MaskedEditExtender" runat="server" BehaviorID="txt_cnic_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="" CultureTimePlaceholder="" Mask="99999-9999999-9" MaskType="Number" TargetControlID="txt_cnic" />
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txt_cnic" ErrorMessage="Digits Only!" ForeColor="Red" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                 </td>
                             <td style="width: 856px">&nbsp;</td>
                         </tr>
@@ -173,10 +173,10 @@
         <br />
         <br />
         <div>
-            <asp:GridView ID="GridViewStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="SqlDataSource1" Height="133px" OnSelectedIndexChanged="GridViewStudents_SelectedIndexChanged" Width="745px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+            <asp:GridView ID="GridViewStudents" runat="server" AutoGenerateColumns="False" DataKeyNames="StudentID" DataSourceID="SqlDataSource1" Height="133px" OnSelectedIndexChanged="GridViewStudents_SelectedIndexChanged" Width="745px" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnRowUpdating="GridViewStudents_RowUpdating">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
-                    <asp:CommandField SelectText="*" ShowSelectButton="True" />
+                    <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
                     <asp:BoundField DataField="StudentID" HeaderText="StudentID" ReadOnly="True" InsertVisible="False" SortExpression="StudentID"></asp:BoundField>
                     <asp:BoundField DataField="StudentName" HeaderText="StudentName" SortExpression="StudentName"></asp:BoundField>
                     <asp:BoundField DataField="FatherName" HeaderText="FatherName" SortExpression="FatherName"></asp:BoundField>
@@ -189,6 +189,26 @@
                     <asp:BoundField DataField="DateOfAdmission" HeaderText="DateOfAdmission" SortExpression="DateOfAdmission" />
                     <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
                     <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                    <asp:TemplateField HeaderText="Action" ShowHeader="False">
+                        <ItemTemplate>
+                            &nbsp;<asp:ImageButton ID="imgbtn_del" runat="server" ImageUrl="~/Images/unnamed.png" Width="32px" CausesValidation="False"  />
+                            <ajaxToolkit:ConfirmButtonExtender ID="ConfirmButtonExtender1" runat="server" DisplayModalPopupID="ModalPopupExtender1" TargetControlID="imgbtn_del" />
+                            <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btn_no" OkControlID="btn_yes" PopupControlID="Panel1" TargetControlID="imgbtn_del">
+                            </ajaxToolkit:ModalPopupExtender>
+                            <br />
+                            <div class="text-left">
+                                <asp:Panel ID="Panel1" runat="server" BorderStyle="Solid" Height="103px" style="background-color: #66CCFF; margin-left: 2px;" Width="280px">
+                                    <div class="text-center" style="width: 277px; height: 103px">
+                                        Do you want make changes?<br />
+                                        <br />
+                                        <asp:Button ID="btn_yes" runat="server" BorderStyle="Solid" class="btn btn-primary shadow px-5" textallign="center" Text="Yes" Width="67px" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:Button ID="btn_no" runat="server" BorderStyle="Solid" class="btn btn-primary shadow px-5" textallign="center" Text="No" Width="65px" />
+                                    </div>
+                                </asp:Panel>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -200,7 +220,7 @@
                 <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
 
-            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:SMSConnectionString %>' DeleteCommand="DELETE FROM [tbl_Student] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO [tbl_Student] ([StudentName], [FatherName], [Gender], [Contact], [Address], [Cnic], [DateOfBirth], [Age], [DateOfAdmission], [Password], [Status]) VALUES (@StudentName, @FatherName, @Gender, @Contact, @Address, @Cnic, @DateOfBirth, @Age, @DateOfAdmission, @Password, @Status)" SelectCommand="SELECT * FROM [tbl_Student]" UpdateCommand="UPDATE [tbl_Student] SET [StudentName] = @StudentName, [FatherName] = @FatherName, [Gender] = @Gender, [Contact] = @Contact, [Address] = @Address, [Cnic] = @Cnic, [DateOfBirth] = @DateOfBirth, [Age] = @Age, [DateOfAdmission] = @DateOfAdmission, [Password] = @Password, [Status] = @Status WHERE [StudentID] = @StudentID">
+            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:SMSConnectionString %>' DeleteCommand="DELETE FROM [tbl_Student] WHERE [StudentID] = @StudentID" InsertCommand="INSERT INTO [tbl_Student] ([StudentName], [FatherName], [Gender], [Contact], [Address], [Cnic], [DateOfBirth], [Age], [DateOfAdmission], [Password], [Status]) VALUES (@StudentName, @FatherName, @Gender, @Contact, @Address, @Cnic, @DateOfBirth, @Age, @DateOfAdmission, @Password, @Status)" SelectCommand="SELECT * FROM [tbl_Student]" UpdateCommand="UPDATE [tbl_Student] SET [StudentName] = @StudentName, [FatherName] = @FatherName, [Gender] = @Gender, [Contact] = @Contact, [Address] = @Address, [Cnic] = @Cnic, [DateOfBirth] = @DateOfBirth, [Age] = @Age, [DateOfAdmission] = @DateOfAdmission, [Password] = @Password, [Status] = @Status WHERE [StudentID] = @StudentID" OnUpdating="SqlDataSource1_Updating">
 
 
                 <DeleteParameters>

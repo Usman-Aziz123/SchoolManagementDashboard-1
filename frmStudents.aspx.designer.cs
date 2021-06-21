@@ -42,6 +42,15 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.TextBox txt_sname;
 
         /// <summary>
+        /// lbl_msg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_msg;
+
+        /// <summary>
         /// SNameValidator control.
         /// </summary>
         /// <remarks>
@@ -409,15 +418,6 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender txt_cnic_MaskedEditExtender;
-
-        /// <summary>
-        /// RegularExpressionValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// btn_save control.

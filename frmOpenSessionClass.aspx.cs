@@ -34,8 +34,8 @@ namespace School_Dashboard
             {
 
             }
-            if (!IsPostBack)
-            {
+            //if ()
+            //{
              DropDownListClass.DataSource=  GetData("sp_GetClass", null);
                 DropDownListClass.DataBind();
 
@@ -48,7 +48,7 @@ namespace School_Dashboard
                 ListItem li4 = new ListItem("Select Course", "-1");
                 DropDownListCourse.Items.Insert(0, li4);
 
-            }
+           // }
             //DropDownListCourse.Enabled = false;
             //DropDownListFaculty.  Enabled = false;
             //DropDownListSection.Enabled = false;
@@ -90,16 +90,21 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
-           
-//            }
-            int a = OS.InsertHeader(Convert.ToInt32(DropDownListSname.SelectedValue), Convert.ToInt32(DropDownListClass.SelectedValue));
-            for (int i = 0; i < GridViewOpening.Rows.Count; i++)
+            try
             {
-                OS.InsertDetail(Convert.ToInt32(GridViewOpening.Rows[i].Cells[0].Text), Convert.ToInt32(GridViewOpening.Rows[i].Cells[1].Text), a);
+
+                int a = OS.InsertHeader(Convert.ToInt32(DropDownListSname.SelectedValue), Convert.ToInt32(DropDownListClass.SelectedValue));
+                for (int i = 0; i < GridViewOpening.Rows.Count; i++)
+                {
+                    OS.InsertDetail(Convert.ToInt32(GridViewOpening.Rows[i].Cells[0].Text), Convert.ToInt32(GridViewOpening.Rows[i].Cells[1].Text), a);
+
+                }
+                Response.Write("Data Saved!!");
+            }
+            catch (Exception ex)
+            {
 
             }
-            Response.Write("Data Saved!!");
-            
 
         }
 

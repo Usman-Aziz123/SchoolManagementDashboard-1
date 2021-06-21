@@ -15,6 +15,15 @@ namespace School_Dashboard
     {
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// lbl_StudID control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,22 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Label lbl_StudID;
 
         /// <summary>
-        /// txt_sid control.
+        /// DropDownListsname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_sid;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListsname;
+
+        /// <summary>
+        /// DropDownListsname_CascadingDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListsname_CascadingDropDown;
 
         /// <summary>
         /// lbl_Class control.
@@ -51,13 +69,22 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListClass;
 
         /// <summary>
-        /// SqlDataSource2 control.
+        /// DropDownListClass_CascadingDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListClass_CascadingDropDown;
+
+        /// <summary>
+        /// rfv_class control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_class;
 
         /// <summary>
         /// lbl_Section control.
@@ -78,13 +105,22 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
 
         /// <summary>
-        /// SqlDataSource3 control.
+        /// DropDownListSection_CascadingDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
+        protected global::AjaxControlToolkit.CascadingDropDown DropDownListSection_CascadingDropDown;
+
+        /// <summary>
+        /// rfv_section control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_section;
 
         /// <summary>
         /// btn_Save control.
@@ -94,6 +130,15 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Save;
+
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// GridViewSCI control.

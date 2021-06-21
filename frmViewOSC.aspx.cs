@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using School_CL;
+using School_CL.Classes;
 
 namespace School_Dashboard
 {
     public partial class WebForm16 : System.Web.UI.Page
     {
-        clsOpeningSession os = new clsOpeningSession();
+        clsFacultyDetail fd = new clsFacultyDetail();
+        clsStudClassINFO sci = new clsStudClassINFO();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Universal.MasterAccess == false)
@@ -20,7 +22,8 @@ namespace School_Dashboard
                 Response.Redirect("frmMain.aspx");
                 Response.Write("Invalid Access");
             }
-            LoadHeaderData();
+            LoadFacultyData();
+            sci.GetDetailData();
         }
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
@@ -28,27 +31,20 @@ namespace School_Dashboard
             ModalPopupExtender1.Show();
         }
 
-        protected void rpt_session_class_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("Select"))
-            {
-                Session["Upd_HeaderID"] = e.CommandArgument.ToString();
-                LoadDetailData(Convert.ToInt32(Session["Upd_HeaderID"]));
-            }
+       
 
+        void LoadFacultyData()
+        {
+            DataTable dt = fd.GetDetailData();
+         
+            
         }
 
-        void LoadDetailData(int id)
+        void LoadStudentData()
         {
-            DataTable dt = os.GetDetailbyHeaderID(id);
-            rpt_fac_course.DataSource = dt;
-            rpt_fac_course.DataBind();
-        }
-
-        void LoadHeaderData()
-        {
-            rpt_session_class.DataSource = os.GetHeaderInfo();
-            rpt_session_class.DataBind();
+            DataTable dt = sci.GetDetailData();
+            rpt_StudentDetail.DataSource = dt;
+            rpt_StudentDetail.DataBind();
         }
 
         

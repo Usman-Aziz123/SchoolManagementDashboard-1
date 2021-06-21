@@ -11,6 +11,9 @@
                <div>
                    <asp:Label ID="lbl_name" runat="server" Text="Course Name" ></asp:Label>
                    <asp:TextBox ID="txt_coursename" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="253px" Style="margin-bottom: 0.4em"></asp:TextBox>
+                   <asp:Label ID="lbl_msg" runat="server" ForeColor="Red"></asp:Label>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_coursename" ErrorMessage="Course Name Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                   <br />
                </div>
                 <div>
                     <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" />

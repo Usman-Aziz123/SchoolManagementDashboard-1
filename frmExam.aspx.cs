@@ -21,7 +21,13 @@ namespace School_Dashboard
             }
             cal_sd.Visible = false;
             cal_ed.Visible = false;
+
+            if (!IsPostBack)
+            {
+
+            }
         }
+
 
         protected void imgbtn_cal_sd_Click(object sender, ImageClickEventArgs e)
         {
@@ -53,20 +59,26 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["_Upd_ID"] != null)
+                {
+                    //update
+                    //section.UpdateSection(Convert.ToInt32(Session["_Upd_ID"])); by Umer Ikhlas
+                    exam.UpdateExam(Convert.ToInt32(Session["_Upd_ID"]), txt_ename.Text, Convert.ToInt32(DropDownListET.Text), Convert.ToDateTime(txt_sd.Text), Convert.ToDateTime(txt_ed.Text), Convert.ToString(chbox_iscurrent.Checked));
+                    Response.Write("<script>alert('Data Updated')</script>");
+                }
+                else
+                {
+                    //add
+                    // section.AddSection(); //Umer IKhlas
+                    exam.InsertExam(txt_ename.Text, Convert.ToInt32(DropDownListET.Text), Convert.ToDateTime(txt_sd.Text), Convert.ToDateTime(txt_ed.Text), Convert.ToString(chbox_iscurrent.Checked));
+                    Response.Write("<script>alert('Exam Created')</script>");
 
-            if (Session["_Upd_ID"] != null)
-            {
-                //update
-                //section.UpdateSection(Convert.ToInt32(Session["_Upd_ID"])); by Umer Ikhlas
-                exam.UpdateExam(Convert.ToInt32(Session["_Upd_ID"]), txt_ename.Text,Convert.ToInt32( DropDownListET.Text), Convert.ToDateTime(txt_sd.Text), Convert.ToDateTime(txt_ed.Text));
-                Response.Write("Data Updated");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                //add
-                // section.AddSection(); //Umer IKhlas
-                exam.InsertExam(txt_ename.Text,Convert.ToInt32 (DropDownListET.Text),Convert.ToDateTime(txt_sd.Text),Convert.ToDateTime(txt_ed.Text));
-                Response.Write("<script>alert('Exam Created')</script>");
 
             }
             GridViewExam.DataBind();
@@ -74,6 +86,7 @@ namespace School_Dashboard
             
             txt_sd.Text = "";
             txt_ed.Text = "";
+            chbox_iscurrent.Checked = false;
 
             GridViewExam.SelectedIndex = -1;
 
@@ -89,8 +102,11 @@ namespace School_Dashboard
                 DropDownListET.Text = GridViewExam.SelectedRow.Cells[3].Text;
                 txt_sd.Text = GridViewExam.SelectedRow.Cells[4].Text;
                 txt_ed.Text = GridViewExam.SelectedRow.Cells[5].Text;
+                chbox_iscurrent.Checked = Convert.ToBoolean(GridViewExam.SelectedRow.Cells[6].Text);
 
-        }
+
+            }
+
 
         }
 
@@ -102,6 +118,37 @@ namespace School_Dashboard
         protected void cal_sd_SelectionChanged(object sender, EventArgs e)
         {
             txt_sd.Text = cal_sd.SelectedDate.ToString();
+        }
+
+        protected void GridViewExam_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        //protected void imgbtn_del_Click(object sender, ImageClickEventArgs e)
+        //{
+            
+        //    exam.UpdateExamStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToString(chbox_iscurrent.Checked));
+        //    Response.Write("<script>alert('Status Updated')</script>");
+        //}
+
+        //protected void GridViewExam_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        //{
+
+        //    exam.UpdateExamStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToString(chbox_iscurrent.Checked=false));
+        //    Response.Write("<script>alert('Status Updated')</script>");
+        //}
+
+        protected void SqlDataSource2_Updating(object sender, SqlDataSourceCommandEventArgs e)
+        {
+            exam.UpdateExamStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToString(chbox_iscurrent.Checked = false));
+            Response.Write("<script>alert('Status Updated')</script>");
+        }
+
+        protected void imgbtn_del_Click1(object sender, ImageClickEventArgs e)
+        {
+            exam.UpdateExamStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToString(chbox_iscurrent.Checked = false));
+            Response.Write("<script>alert('Status Updated')</script>");
         }
     }
 }

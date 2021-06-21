@@ -26,13 +26,17 @@ namespace School_Dashboard
             {
                 dt.Columns.Add("Class");
                 dt.Columns.Add("Section");
-                dt.Columns.Add("Courses");
-                dt.Columns.Add("Standard");
+              
 
                 ViewState["Records"] = dt;
 
             }
             else
+            {
+
+            }
+
+            if (!IsPostBack)
             {
 
             }
@@ -87,14 +91,7 @@ namespace School_Dashboard
 
         protected void GridViewClassDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["_Upd_ID"] = GridViewClassDetails.SelectedRow.Cells[1].Text;
-            if (GridViewClassDetails.Rows.Count < 0) { }
-            else
-            {
-                lbl_cdid.Text = GridViewClassDetails.SelectedRow.Cells[1].Text;
-                lbl_cdid.Text = Universal.CDID.ToString();
-                Response.Redirect("frmViewClassDetails.aspx");
-            }
+            //
         }
     }
 }

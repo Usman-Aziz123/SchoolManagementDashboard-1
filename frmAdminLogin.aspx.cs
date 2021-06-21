@@ -18,7 +18,7 @@ namespace School_Dashboard
         {
 
         }
-
+        
         protected void btn_login_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString);
@@ -36,8 +36,25 @@ namespace School_Dashboard
                 string pass = passcom.ExecuteScalar().ToString();
                 if (pass == txt_pass.Text)
                 {
-                    Session["New"] = txt_adminid.Text;
+                    DataTable dt = new DataTable();
+                    using (SqlConnection cons = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(@"SELECT * from tbl_admin where AdminID =" + txt_adminid.Text))
+                        {
+                            using (SqlDataAdapter sda = new SqlDataAdapter())
+                            {
+                                cmd.Connection = con;
+                                sda.SelectCommand = cmd;
+                                sda.Fill(dt);
+                                Session["UserData"] = dt;
+                            }
+                        }
+                    }
+
+                   
+                    Session["LoggedAdminID"] = txt_adminid.Text;
                     Universal.MasterAccess = true;
+                    Universal.AttendanceAccess = true;
                     Response.Redirect("frmMain.aspx");
                     Response.Write("<b>Login Successful</b>");
 

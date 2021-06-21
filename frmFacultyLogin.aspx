@@ -48,8 +48,9 @@
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_fid" ErrorMessage="Numbers Allowed Only!" ForeColor="Red" ValidationExpression="\d+"></asp:RegularExpressionValidator>
         <div class="form-group mb-4">
             <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="txt_pass" runat="server" class="form-control border-0 shadow form-control-lg text-violet" style="width: 40%; margin-bottom: 0" type="password"></asp:TextBox>
-          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Password Required!" ControlToValidate="txt_pass" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="txt_pass" runat="server" class="form-control border-0 shadow form-control-lg text-violet" style="width: 40%; margin-bottom: 0" type="password" placeholder="Password"></asp:TextBox>
+            <input id="Checkbox1" type="checkbox" OnChange="document.getElementById('txt_pass').type=this.checked?'text':'Password'" />Show Password
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Password Required!" ControlToValidate="txt_pass" ForeColor="Red"  ></asp:RequiredFieldValidator>
 
         </div>
                   <br />

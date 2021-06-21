@@ -13,55 +13,18 @@
                 <div class="form-group">
                     <asp:Label ID="lbl_cname" runat="server" Text="Class Name"></asp:Label>
                     <asp:TextBox ID="txt_class" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="253px" Style="margin-bottom: 0.4em" placeholder="Class Name"></asp:TextBox>
-                </div>
-                 <div class="form-group">
-                    <asp:Label ID="lbl_standid" runat="server" Text="Standard Name"></asp:Label>
-                    <asp:DropDownList ID="DropDownListStandID" runat="server" DataSourceID="SqlDataSource2" DataTextField="Description" DataValueField="StandardID" Width="179px" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
-
-                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" DeleteCommand="DELETE FROM [tbl_Standard] WHERE [StandardID] = @StandardID" SelectCommand="SELECT * FROM [tbl_Standard]" InsertCommand="INSERT INTO [tbl_Standard] ([Description]) VALUES (@Description)" UpdateCommand="UPDATE [tbl_Standard] SET [Description] = @Description WHERE [StandardID] = @StandardID">
-                         <DeleteParameters>
-                             <asp:Parameter Name="StandardID" Type="Int32" />
-                         </DeleteParameters>
-                         <InsertParameters>
-                             <asp:Parameter Name="Description" Type="String" />
-                         </InsertParameters>
-                         <UpdateParameters>
-                             <asp:Parameter Name="Description" Type="String" />
-                             <asp:Parameter Name="StandardID" Type="Int32" />
-                         </UpdateParameters>
-                     </asp:SqlDataSource>
-
-                </div>
-                 <div class="form-group">
-                    <asp:Label ID="lbl_secid" runat="server" Text="Section Name"></asp:Label>
-                    <asp:DropDownList ID="DropDownListSecID" runat="server" DataSourceID="SqlDataSource3" DataTextField="SectionName" DataValueField="SectionID" Width="179px" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
-
-                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" DeleteCommand="DELETE FROM [tbl_Section] WHERE [SectionID] = @SectionID" SelectCommand="SELECT * FROM [tbl_Section]" InsertCommand="INSERT INTO [tbl_Section] ([SectionName]) VALUES (@SectionName)" UpdateCommand="UPDATE [tbl_Section] SET [SectionName] = @SectionName WHERE [SectionID] = @SectionID" OnSelecting="SqlDataSource3_Selecting">
-                         <DeleteParameters>
-                             <asp:Parameter Name="SectionID" Type="Int32" />
-                         </DeleteParameters>
-                         <InsertParameters>
-                             <asp:Parameter Name="SectionName" Type="String" />
-                         </InsertParameters>
-                         <UpdateParameters>
-                             <asp:Parameter Name="SectionName" Type="String" />
-                             <asp:Parameter Name="SectionID" Type="Int32" />
-                         </UpdateParameters>
-                     </asp:SqlDataSource>
-
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_class" ErrorMessage="Class Name Required" ValidationGroup="updateClass" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div>
-                    <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" />
+                    <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" ValidationGroup="updateClass" />
                 </div>
                 <br />
                 <div>
-                    <asp:GridView ID="GridViewClass" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ClassID" DataSourceID="SqlDataSource1" ForeColor="Black">
+                    <asp:GridView ID="GridViewClass" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="ClassID" DataSourceID="SqlDataSource1" ForeColor="Black" OnSelectedIndexChanged="GridViewClass_SelectedIndexChanged">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField DeleteText="X" HeaderText="Select" SelectText="*" ShowSelectButton="True" />
                             <asp:BoundField DataField="ClassID" HeaderText="ClassID" InsertVisible="False" ReadOnly="True" SortExpression="ClassID" />
                             <asp:BoundField DataField="ClassName" HeaderText="ClassName" SortExpression="ClassName" />
-                            <asp:BoundField DataField="StandardID" HeaderText="StandardID" SortExpression="StandardID" />
-                            <asp:BoundField DataField="SectionID" HeaderText="SectionID" SortExpression="SectionID" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
