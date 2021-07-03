@@ -13,16 +13,15 @@ namespace School_CL
     {
         Database db = DatabaseFactory.CreateDatabase("SMSConnectionString");
 
-        public int InsertStatus(int fid, DateTime dd, string status)
+        public int InsertStatus(int sid, DateTime dd, string status)
         {
-            return Convert.ToInt32(db.ExecuteScalar("sp_InsertStudStatus", new object[] { fid, dd, status }));
-
+            return Convert.ToInt32(db.ExecuteScalar("sp_InsertStudStatus", new object[] { sid, dd, status }));
         }
 
 
-        public void UpdateStatus(int id, int fid, DateTime dd, string status)
+        public void UpdateStatus(int id, int sid, DateTime dd, string status)
         {
-            db.ExecuteNonQuery("sp_UpdateStudStatus", new object[] { id, fid, dd, status });
+            db.ExecuteNonQuery("sp_UpdateStudStatus", new object[] { id, sid, dd, status });
         }
 
         public DataTable GetStudentDetails(int cid,int sid)

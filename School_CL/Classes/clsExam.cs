@@ -16,14 +16,21 @@ namespace School_CL
         {
             return db.ExecuteDataSet("sp_GetExam").Tables[0];
         }
-        public void InsertExam(string ExamnName,int et,DateTime sd, DateTime ed)
+        public void InsertExam(string ExamnName,int et,DateTime sd, DateTime ed,string isc)
         {
-            db.ExecuteNonQuery("sp_InsertExam", new object[] { ExamnName, et,sd,ed });
+            db.ExecuteNonQuery("sp_InsertExam", new object[] { ExamnName, et,sd,ed,isc });
         }
 
-        public void UpdateExam(int id,string ExamnName, int et, DateTime sd, DateTime ed)
+        public void UpdateExam(int id,string ExamnName, int et, DateTime sd, DateTime ed, string isc)
         {
-            db.ExecuteNonQuery("sp_UpdateExam", new object[] { id, ExamnName,et,sd,ed });
+            db.ExecuteNonQuery("sp_UpdateExam", new object[] { id, ExamnName,et,sd,ed,isc });
         }
+
+        public void UpdateExamStatus(int id,  string isc)
+        {
+            db.ExecuteNonQuery("sp_UpdateExamStatus", new object[] { id, isc });
+        }
+        
+
     }
 }

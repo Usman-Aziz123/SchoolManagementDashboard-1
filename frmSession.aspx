@@ -29,9 +29,19 @@
 
                 </div>
                 <div>
-                    <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" />
+                    <v>
+                    <table class="w-100">
+                        <tr>
+                            <td style="width: 100px">
+                    <asp:Button ID="btn_save" runat="server" Text="Save" class="btn btn-primary shadow px-5" OnClick="btn_save_Click"  />
+                            </td>
+                            <td>
+               <asp:Button ID="btn_reset" class="btn btn-primary shadow px-5" runat="server" Text="Reset" OnClick="btn_reset_Click"  />
 
-                     <div>
+                            </td>
+                        </tr>
+                    </table>
+                        <div>
                          <br />
             <asp:GridView ID="GridViewSession" runat="server" AutoGenerateColumns="False" DataKeyNames="SessionID" DataSourceID="SqlDataSource1" Height="133px"  Width="745px" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" ForeColor="Black" CellSpacing="2" OnSelectedIndexChanged="GridViewSession_SelectedIndexChanged">
                 <Columns>

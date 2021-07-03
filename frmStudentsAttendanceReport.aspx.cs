@@ -41,7 +41,7 @@ namespace School_Dashboard
                     {
                         Runreport();
                     }
-                    else if (Universal.MasterAccess == true || Universal.MasterAccess == true)
+                    else if (Universal.MasterAccess == true || Universal.FacultyAccess == true)
                     {
 
                         runreport();
@@ -80,23 +80,36 @@ namespace School_Dashboard
         public void Runreport()
             {
 
-            RepQuery1 = "select COUNT(Status) as 'Present Days' from tbl_StudAttendance where Status ='Present'";
-            int DaysPresent = 0;
+            string DaysPresent = "";
+            RepQuery1 = "select COUNT(Status) as 'Present Days' from tbl_StudAttendance where Status ='Present'";           
             sqlcon.Open();
             da = new SqlDataAdapter(RepQuery1, RepCon);
             DataTable dt1 = new DataTable("table1");
             da.Fill(dt1);
-            DaysPresent = dt1.Rows.Count;
+            DataRow[] dr = dt1.Select();
+            foreach (DataRow row in dr)
+            {
+                DaysPresent = row["Present Days"].ToString();
+            }
             sqlcon.Close();
             lbl_DaysPresent.Text = DaysPresent.ToString();
 
+            sqlcon.Close();
+            lbl_DaysPresent.Text = DaysPresent.ToString();
+
+            string DaysAbsent = "";
             RepQuery2 = "select COUNT(Status) as 'Absent Days' from tbl_StudAttendance where Status ='Absent'";
-            int DaysAbsent = 0;
             sqlcon.Open();
             da2 = new SqlDataAdapter(RepQuery2, RepCon);
             DataTable dt2 = new DataTable("table2");
             da2.Fill(dt2);
-            DaysAbsent = dt2.Rows.Count;
+            DataRow[] dr1 = dt2.Select();
+            foreach (DataRow row1 in dr1)
+            {
+                DaysAbsent = row1["Absent Days"].ToString();
+            }
+            sqlcon.Close();
+            lbl_DaysAbsent.Text = DaysAbsent.ToString();
             sqlcon.Close();
             lbl_DaysAbsent.Text = DaysAbsent.ToString();
 
@@ -104,7 +117,7 @@ namespace School_Dashboard
 
 
 
-            RepQuery = "SELECT sa.*,s.StudentName FROM tbl_StudAttendance sa join tbl_student s on s.studentID = sa.StudentID where StudentID =" + Session["LoggedStudentID"];
+            RepQuery = "SELECT sa.*,s.StudentName FROM tbl_StudAttendance sa join tbl_student s on s.studentID = sa.StudentID where s.StudentID =" + Session["LoggedStudentID"];
             sqlcon.Open();
             da = new SqlDataAdapter(RepQuery, RepCon);
             DataTable dt = new DataTable("table1");

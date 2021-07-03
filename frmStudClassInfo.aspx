@@ -11,6 +11,13 @@
                                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 
+                
+                <div>
+                    <asp:Label ID="Label1" runat="server" Text="Session  "></asp:Label>
+                    <asp:DropDownList ID="DropDownListSession" runat="server" DataSourceID="SqlDataSource2" DataTextField="SessionName" Width="250px" DataValueField="SessionID" class="form-control border-0 shadow form-control-lg text-violet" readonly="true"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="sp_GetCurrentSession" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                </div>
+                <br />
                 <div>
                     <asp:Label ID="lbl_StudID" runat="server" Text="Student ID" ></asp:Label>
                     <br />
@@ -20,6 +27,7 @@
                     <ajaxToolkit:CascadingDropDown ID="DropDownListsname_CascadingDropDown" runat="server" BehaviorID="DropDownListsname_CascadingDropDown" TargetControlID="DropDownListsname" Category="Student"  LoadingText="Loading Students" PromptText="Select Student" ServiceMethod="BindRemainingStudents" ServicePath="~/WebServiceCascading.asmx" />
 
                 </div>
+                <br />
                 <div>
                     <asp:Label ID="lbl_Class" runat="server" Text="Class"></asp:Label>
                     <asp:DropDownList ID="DropDownListClass" runat="server" class="form-control border-0 shadow form-control-lg text-violet"   Width="250px">
@@ -28,7 +36,7 @@
                     </ajaxToolkit:CascadingDropDown>
                     <asp:RequiredFieldValidator ID="rfv_class" runat="server" ControlToValidate="DropDownListClass" ErrorMessage="Class Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
-
+                <br />
                 <div>
                     <asp:Label ID="lbl_Section" runat="server" Text="Section Name"></asp:Label>
                     <asp:DropDownList ID="DropDownListSection" runat="server" class="form-control border-0 shadow form-control-lg text-violet"  Width="250px">
@@ -37,6 +45,7 @@
                     </ajaxToolkit:CascadingDropDown>
                     <asp:RequiredFieldValidator ID="rfv_section" runat="server" ControlToValidate="DropDownListSection" ErrorMessage="Section Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
+                <br />
                 <br />
                 <asp:Button ID="btn_Save" runat="server"  Text="Save" OnClick="btn_Save_Click" class="btn btn-primary shadow px-5" />
                 <br />

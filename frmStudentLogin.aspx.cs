@@ -53,6 +53,7 @@ namespace School_Dashboard
                         }
                     }
 
+                    Session["LoggedStudentID"] = txt_sid.Text;
                     Universal.StudentAccess = true;
                     Response.Redirect("frmMain.aspx");
                     Response.Write("<b>Login Successful</b>");

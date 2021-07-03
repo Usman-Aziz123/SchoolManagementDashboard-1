@@ -21,17 +21,7 @@
                 <div class="form-group">
                     <asp:Label ID="Label1" runat="server" Text="Faculty Name"></asp:Label>
                     <asp:DropDownList ID="DropDownListFname" runat="server" DataSourceID="SqlDataSource1" DataTextField="FacultyName" DataValueField="FacultyID" class="form-control border-0 shadow form-control-lg text-violet" Width="227px"></asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" DeleteCommand="DELETE FROM [tbl_Faculty] WHERE [FacultyID] = @FacultyID" InsertCommand="INSERT INTO [tbl_Faculty] ([FacultyName]) VALUES (@FacultyName)" SelectCommand="SELECT [FacultyID], [FacultyName] FROM [tbl_Faculty]" UpdateCommand="UPDATE [tbl_Faculty] SET [FacultyName] = @FacultyName WHERE [FacultyID] = @FacultyID">
-                        <DeleteParameters>
-                            <asp:Parameter Name="FacultyID" Type="Int32" />
-                        </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="FacultyName" Type="String" />
-                        </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="FacultyName" Type="String" />
-                            <asp:Parameter Name="FacultyID" Type="Int32" />
-                        </UpdateParameters>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT [FacultyID], [FacultyName] FROM [tbl_Faculty]">
                     </asp:SqlDataSource>
                     <br />
                     </div>
@@ -74,6 +64,7 @@
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
+                            <asp:BoundField DataField="FacultyID" HeaderText="FacultyID" SortExpression="FacultyID" />
                             <asp:BoundField DataField="FacultyName" HeaderText="FacultyName" SortExpression="FacultyName" />
                             <asp:BoundField DataField="DateDay" HeaderText="DateDay" SortExpression="DateDay" />
                             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
@@ -89,7 +80,7 @@
                     </asp:GridView>
 
                     
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT f.FacultyName,fa.DateDay,fa.Status FROM [tbl_FacultyAttendance] fa join tbl_faculty f on f.FacultyID=fa.FacultyID " DeleteCommand="DELETE FROM [tbl_FacultyAttendance] WHERE [FAStatusID] = @FAStatusID" InsertCommand="INSERT INTO [tbl_FacultyAttendance] ([FacultyID], [DateDay], [Status]) VALUES (@FacultyID, @DateDay, @Status)" UpdateCommand="UPDATE [tbl_FacultyAttendance] SET [FacultyID] = @FacultyID, [DateDay] = @DateDay, [Status] = @Status WHERE [FAStatusID] = @FAStatusID">
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT fa.FacultyID,f.FacultyName,fa.DateDay,fa.Status FROM [tbl_FacultyAttendance] fa join tbl_faculty f on f.FacultyID=fa.FacultyID" DeleteCommand="DELETE FROM [tbl_FacultyAttendance] WHERE [FAStatusID] = @FAStatusID" InsertCommand="INSERT INTO [tbl_FacultyAttendance] ([FacultyID], [DateDay], [Status]) VALUES (@FacultyID, @DateDay, @Status)" UpdateCommand="UPDATE [tbl_FacultyAttendance] SET [FacultyID] = @FacultyID, [DateDay] = @DateDay, [Status] = @Status WHERE [FAStatusID] = @FAStatusID">
                         <DeleteParameters>
                             <asp:Parameter Name="FAStatusID" Type="Int32" />
                         </DeleteParameters>

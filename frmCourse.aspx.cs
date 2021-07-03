@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,8 +34,14 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            var result = (" select * from tbl_course where email =" + txt_coursename.Text);
-            Courseid = GridViewCourse.SelectedRow != null ? Convert.ToInt32(GridViewCourse.SelectedRow.Cells[1].Text) : 0;
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString);
+            con.Open();
+            string result = "Select * from tbl_Course where Coursename='" + txt_coursename.Text + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(result, con);
+            DataTable dt1 = new DataTable("table1");
+            da.Fill(dt1);
+            con.Close(); Courseid = GridViewCourse.SelectedRow != null ? Convert.ToInt32(GridViewCourse.SelectedRow.Cells[1].Text) : 0;
 
             try
             {
@@ -43,12 +52,17 @@ namespace School_Dashboard
                         crs.UpdateCourse(Courseid, txt_coursename.Text);
                         Response.Write("Data Updated");
                     }
-                    else if (result == null)
+                    else if (dt1.Rows.Count == 0)
                     {
                         crs.InsertCourse(txt_coursename.Text);
                         Response.Write("<script>alert('Data Saved')</script>");
                     }
+                    else 
+                    {
+                        Response.Write("<script>alert('Data Already Exist')</script>");
+                    }
                 }
+              
             }
             catch(Exception ex)
             {
@@ -71,5 +85,10 @@ namespace School_Dashboard
                 txt_coursename.Text = GridViewCourse.SelectedRow.Cells[2].Text;
             }
     }
-}
+
+        protected void btn_reset_Click(object sender, EventArgs e)
+        {
+            txt_coursename.Text = "";
+        }
+    }
 }

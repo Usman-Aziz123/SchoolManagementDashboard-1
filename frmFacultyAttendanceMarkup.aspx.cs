@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,7 +38,15 @@ namespace School_Dashboard
         protected void btn_Save_Click(object sender, EventArgs e)
         {
             //var result = (" select * from tbl_class where email =" + txt_class.Text);
+            int statusid = 0;
 
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString);
+            con.Open();
+            string result = "Select * from tbl_FacultyAttendance where Dateday='" + txt_dd.Text + "'and FacultyID='"+DropDownListFname.Text+"'";
+            SqlDataAdapter da = new SqlDataAdapter(result, con);
+            DataTable dt1 = new DataTable("table1");
+            da.Fill(dt1);
+            con.Close();
             string a;
             if (btnrd_present.Checked == true)
             {
@@ -47,15 +58,23 @@ namespace School_Dashboard
             }
             try
             {
-                if (Session["_Upd_ID"] != null)
+                if (IsValid)
                 {
-                    fas.UpdateStatus(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
-                    Response.Write("Data Updated");
-                }
-                else
-                {
-                    fas.InsertStatus(Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
-                    Response.Write("<script>alert('Data Saved')</script>");
+                    if (statusid != 0)
+                    {
+                        fas.UpdateStatus(statusid, Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
+                        Response.Write("Data Updated");
+                    }
+                    else if (dt1.Rows.Count == 0)
+                    {
+                        fas.InsertStatus(Convert.ToInt32(DropDownListFname.Text), Convert.ToDateTime(txt_dd.Text), a);
+                        Response.Write("<script>alert('Data Saved')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<b >Data Already Exist!!</b>");
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -77,7 +96,7 @@ namespace School_Dashboard
             else
             {
                 DropDownListFname.Text = GridViewStatus.SelectedRow.Cells[1].Text;
-                lbl_dd.Text = GridViewStatus.SelectedRow.Cells[2].Text;
+                lbl_dd.Text = GridViewStatus.SelectedRow.Cells[3].Text;
                 
                 txt_dd.Visible = false;
             }

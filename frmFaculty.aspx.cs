@@ -36,9 +36,13 @@ namespace School_Dashboard
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString);
             con.Open();
-            string result = "Select * from tbl_faculty where Contact='" + txt_contact.Text + "'";
-            SqlCommand com = new SqlCommand(result, con);
-            string temp = com.ExecuteReader().ToString();
+            string result = "Select * from tbl_faculty where Cnic='" + txt_cnic.Text + "'";
+          
+           SqlDataAdapter da = new SqlDataAdapter(result, con);
+            DataTable dt1 = new DataTable("table1");
+            da.Fill(dt1);           
+            con.Close();
+          
             facultyid = GridViewFaculty.SelectedRow != null ? Convert.ToInt32(GridViewFaculty.SelectedRow.Cells[1].Text) : 0;
 
             try
@@ -48,20 +52,20 @@ namespace School_Dashboard
                     if (facultyid != 0)
                     {
                         //update
-                        fac.UpdateFaculty(facultyid, txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text, Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
+                        fac.UpdateFaculty(facultyid, txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text, Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked),txt_cnic.Text);
 
                         Response.Write("<b>Data Updated<b>");
                     }
-                    else if (result != txt_contact.Text)
+                    else if (dt1.Rows.Count == 0 )
                     {
                         //add
-                        fac.InsertFaculty(txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text, Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked));
+                        fac.InsertFaculty(txt_name.Text, txt_address.Text, txt_contact.Text, txt_qual.Text, txt_exp.Text, txt_pass.Text, DropDownListGender.Text, txt_email.Text, Convert.ToDateTime(lbl_jd.Text), DropDownListStatus.Text, Convert.ToString(chkbox_vf.Checked),txt_cnic.Text);
                         Response.Write("<script>alert('Data Saved')</script>");
 
                     }
-                    else if(temp==result && result == txt_contact.Text && temp ==txt_contact.Text)
+                    else 
                     {
-                        Response.Write("<b>Faculty Already Exist!!</b>");
+                        Response.Write("<b >Faculty Already Exist!!</b>") ;
                     }
                 }
             }
@@ -111,8 +115,18 @@ namespace School_Dashboard
 
         }
 
-       
-
-        
+        protected void btn_reset_Click(object sender, EventArgs e)
+        {
+            txt_name.Text = "";
+            txt_exp.Text = "";
+            txt_pass.Text = "";
+            txt_contact.Text = "";
+            txt_email.Text = "";
+            txt_address.Text = "";
+            DropDownListGender.Text = "Default";
+            DropDownListStatus.Text = "Default";
+            txt_qual.Text = "";
+            chkbox_vf.Checked = false;
+        }
     }
 }

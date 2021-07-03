@@ -26,6 +26,10 @@ namespace School_CL
         {
             return db.ExecuteDataSet("spGetDetailbyHeaderID", new object[] { id }).Tables[0];
         }
+        public DataTable GetDetailbyHeaderID_Session(int id)
+        {
+            return db.ExecuteDataSet("spGetDetailbyHeaderID", new object[] { id }).Tables[0];
+        }
 
         public int InsertHeader(int sid, int cid)
         {

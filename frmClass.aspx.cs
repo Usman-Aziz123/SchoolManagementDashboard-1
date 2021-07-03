@@ -80,5 +80,10 @@ namespace School_Dashboard
 
         }
 
+        protected void btn_reset_Click(object sender, EventArgs e)
+        {
+
+            txt_class.Text = "";
+        }
     }
 }

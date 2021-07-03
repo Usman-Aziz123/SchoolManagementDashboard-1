@@ -82,11 +82,11 @@
         <!-- navbar-->
         <header class="header">
             <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow">
-                <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="frmMain.aspx" class="navbar-brand font-weight-bold text-uppercase text-base">Dashboard</a>
+<%--                <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="frmMain.aspx" class="navbar-brand font-weight-bold text-uppercase text-base">Dashboard</a>--%>
                 <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
-                    <li class="nav-item">
+                   <%-- <li class="nav-item">--%>
 
-                        <div class="form-group position-relative mb-0">
+                        <%--<div class="form-group position-relative mb-0">
                             <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
                             <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
                         </div>
@@ -98,14 +98,12 @@
                                 <div class="d-flex align-items-center">
                                     <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
                                     <div class="text ml-2">
-                                        <p class="mb-0">You have 2 followers</p>
                                     </div>
                                 </div>
                             </a><a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
                                     <div class="icon icon-sm bg-green text-white"><i class="fas fa-envelope"></i></div>
                                     <div class="text ml-2">
-                                        <p class="mb-0">You have 6 new messages</p>
                                     </div>
                                 </div>
                             </a><a href="#" class="dropdown-item">
@@ -119,22 +117,23 @@
                                 <div class="d-flex align-items-center">
                                     <div class="icon icon-sm bg-violet text-white"><i class="fab fa-twitter"></i></div>
                                     <div class="text ml-2">
-                                        <p class="mb-0">You have 2 followers</p>
                                     </div>
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item text-center"><small class="font-weight-bold headings-font-family text-uppercase">View all notifications</small></a>
                         </div>
-                    </li>
+                    </li>--%>
                     <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                         <img src="img/avatar-6.jpg" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
                         <div aria-labelledby="userInfo" class="dropdown-menu">
-                            <a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Mark Stephen</strong><small>Web Developer</small></a>
+                            <a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family"><asp:Label id="lblUserName" runat="server"></asp:Label> <asp:Label id="lbl_username" runat="server"></asp:Label></strong><small><asp:Label id="lbl_Role" runat="server"></asp:Label></small></a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a>
+                            <a href="frmSettings.aspx" class="dropdown-item">Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a href="frmlogin.aspx" class="dropdown-item">Logout</a>
+                            <div>
+                            <asp:Button ID="btn_logout" runat="server" Text="Logout" OnClick="btn_logout_Click" class="dropdown-item"/>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -161,7 +160,7 @@
                             <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                                 <li class="sidebar-list-item"><a href="frmFaculty.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Master Data</a></li>
                                 <li class="sidebar-list-item"><a href="frmFacultyAttendanceMarkup.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance</a></li>
-                                <li class="sidebar-list-item"><a href="frmFacultyAttendanceReport.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance Data</a></li>
+<%--                                <li class="sidebar-list-item"><a href="frmFacultyAttendanceReport.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Attendance Data</a></li>--%>
                                  <li class="sidebar-list-item"><a href="frmFacultyDetails.aspx" class="sidebar-link text-muted pl-lg-5">Faculty Details </a></li>
 
                             </ul>
@@ -192,8 +191,25 @@
                     <li class="sidebar-list-item"><a href="frmSession.aspx" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Session</span></a></li>
 <%--                    <li class="sidebar-list-item"><a href="frmOpenSessionClass.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Open Class for Session</span></a></li>--%>
                     <li class="sidebar-list-item"><a href="frmSection.aspx" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Section</span></a></li>
-                    <li class="sidebar-list-item"><a href="frmViewOSC.aspx" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>View OSC</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmViewDetails.aspx" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>View Details</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmMarkSheet.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>MarkSheet</span></a></li>
+                    <li class="sidebar-list-item"><a href="frmLock.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Lock Form </span></a></li>
+                    <li class="sidebar-list-item"><a href="frmPromoteStudents.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Promote Form </span></a></li>
+
                 </ul>
+                <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages6" aria-expanded="false" aria-controls="pages6" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Results</span></a>
+                        <div id="pages6" class="collapse">
+                <ul class="sidebar-menu list-unstyled">   
+             <li class="sidebar-list-item"><a href="frmReportCurrentResult.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Current Result </span></a></li>
+             <li class="sidebar-list-item"><a href="frmReportClassResults.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Result for Current Class </span></a></li>
+             <li class="sidebar-list-item"><a href="frmReportResultHistory.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Result History </span></a></li>
+
+
+                    </ul>
+                            </div>
+                    </li>
+                
+                            
 
                     <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages5" aria-expanded="false" aria-controls="pages5" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Reports</span></a>
                         <div id="pages5" class="collapse">
@@ -205,7 +221,11 @@
                     <li class="sidebar-list-item"><a href="frmFacultyReport.aspx" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Faculty Report</span></a></li>
                     <li class="sidebar-list-item"><a href="frmRemainingFaculty.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Remaining Faculty</span></a></li>
                     <li class="sidebar-list-item"><a href="frmFacultyAttendanceReport.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Faculty Attendance Report</span></a></li>
-       </ul>
+                    <li class="sidebar-list-item"><a href="frmApplicantReport.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Applicants Report</span></a></li>
+                     <li class="sidebar-list-item"><a href="frmReportMarksheetforAdmin.aspx" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>MarkSheet Report For Admin </span></a></li>
+                                                                                                                                                   
+
+                </ul>
             </div>
                         
                         </li>

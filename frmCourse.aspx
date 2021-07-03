@@ -16,7 +16,18 @@
                    <br />
                </div>
                 <div>
-                    <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click" />
+                  
+                    <table class="w-100">
+                        <tr>
+                            <td style="width: 100px">
+                    <asp:Button ID="btn_save" runat="server" Text="Save" class="btn btn-primary shadow px-5" OnClick="btn_save_Click"  />
+                            </td>
+                            <td>
+               <asp:Button ID="btn_reset" class="btn btn-primary shadow px-5" runat="server" Text="Reset" OnClick="btn_reset_Click"  />
+
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div>
                     <br />

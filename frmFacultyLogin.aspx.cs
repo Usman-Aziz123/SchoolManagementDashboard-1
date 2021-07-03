@@ -51,6 +51,7 @@ namespace School_Dashboard
                             }
                         }
                     }
+                    Session["LoggedFacultyID"] = txt_fid.Text;
                     Universal.FacultyAccess = true;
 
                     
