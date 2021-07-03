@@ -27,13 +27,13 @@ namespace School_CL
         {
             db.ExecuteNonQuery("sp_UpdateClass", new object[] { id, name });
         }
-        public void InsertClassDetails(int cid,int secid,int courseid,int stid)
+        public void InsertClassDetails(int cid,int secid)
         {
-            db.ExecuteNonQuery("sp_InsertClassDetails", new object[] { cid,secid,courseid,stid });
+            db.ExecuteNonQuery("sp_InsertClassDetails", new object[] { cid,secid });
         }
-        public void UpdateClassDetails(int id,int cid, int secid, int courseid, int stid)
+        public void UpdateClassDetails(int id,int cid, int secid)
         {
-            db.ExecuteNonQuery("sp_UpdateClass", new object[] {id, cid, secid, courseid, stid });
+            db.ExecuteNonQuery("sp_UpdateClass", new object[] {id, cid, secid  });
         }
 
     }

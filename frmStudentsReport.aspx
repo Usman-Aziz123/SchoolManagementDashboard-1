@@ -5,7 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     
-        <rsweb:ReportViewer ID="ReportViewer1" runat="server"  Width="50%" ></rsweb:ReportViewer>
+        <rsweb:ReportViewer ID="ReportViewer1" runat="server"  Width="100%" Height="80%" BorderStyle="Solid" ></rsweb:ReportViewer>
+    <br />
+    <br />
     <strong>
     <asp:Label ID="Label1" runat="server" Text="Total Students : " Font-Size="X-Large" style="text-decoration: underline"></asp:Label>
     <asp:Label ID="lbl_totalstudents" runat="server" Font-Size="X-Large"></asp:Label>

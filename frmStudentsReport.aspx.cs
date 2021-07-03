@@ -39,7 +39,7 @@ namespace School_Dashboard
             {
                 Runreport();
             }
-            int TotalActive;
+            int TotalActive=0;
             RepQuery = "select * from tbl_Student where status='Active'";
             sqlcon.Open();
             da = new SqlDataAdapter(RepQuery, RepCon);
@@ -50,20 +50,24 @@ namespace School_Dashboard
             lbl_activestuds.Text = TotalActive.ToString();
 
 
-            int Total;
-            RepQuery = "select COUNT(*) from tbl_Student";
+            int Total=0;
+            RepQuery = "select COUNT(StudentID) as Total from tbl_Student";
             sqlcon.Open();
             da = new SqlDataAdapter(RepQuery, RepCon);
             DataTable dt = new DataTable("table1");
             da.Fill(dt);
-            Total = dt.Rows.Count;
+            DataRow[] dr = dt.Select();
+            foreach (DataRow row in dr)
+            {
+                Total =Convert.ToInt32(row["Total"].ToString());
+            }
             sqlcon.Close();
             lbl_totalstudents.Text = Total.ToString();
         }
 
         public void Runreport()
         {
-            RepQuery = "SELECT * FROM tbl_Student";
+            RepQuery = "select * from tbl_Student";
             sqlcon.Open();
             da = new SqlDataAdapter(RepQuery, RepCon);
             DataTable dt = new DataTable("table1");

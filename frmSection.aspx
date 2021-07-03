@@ -18,7 +18,19 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Secion Name Required" ForeColor="Red" ControlToValidate="txt_Sectionname"></asp:RequiredFieldValidator>
                 </div>
                 <div>
+                    <table class="w-100">
+                        <tr>
+                            <td style="width: 100px">
                     <asp:Button ID="btn_save" runat="server" Text="Save" class="btn btn-primary shadow px-5" OnClick="btn_save_Click"  />
+                            </td>
+                            <td>
+               <asp:Button ID="btn_reset" class="btn btn-primary shadow px-5" runat="server" Text="Reset" OnClick="btn_reset_Click"  />
+
+                            </td>
+                        </tr>
+                    </table>
+                  
+
                 </div>
                 <div>
                     <asp:GridView ID="GridViewSection" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="SectionID" DataSourceID="SqlDataSource1" ForeColor="Black" OnSelectedIndexChanged="GridViewSection_SelectedIndexChanged" >

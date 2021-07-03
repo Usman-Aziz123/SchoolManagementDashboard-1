@@ -11,8 +11,12 @@ namespace School_CL
     public static class Universal
     {
         public static int ID;
-        public static string Name;
-        public static Boolean New,Old,MasterAccess=false,FacultyAccess=false,StudentAccess=false,AttendanceAccess=false;
+        public static string AdminName,FacultyName,StudentName;
+        public static Boolean MasterAccess=false,FacultyAccess=false,StudentAccess=false,AttendanceAccess=false;
         public static int SID, FID, AID,CDID;
+        public static string New, Old;
+        public static bool checkstatus=false;
+        public static DateTime chkdate;
+
     }
 }

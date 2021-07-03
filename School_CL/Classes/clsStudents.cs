@@ -43,13 +43,17 @@ namespace School_CL
             db.ExecuteNonQuery("sp_UpdateStudent", new object[] { id, StudentName, FatherName, Gender, Contact, Address, CNIC, DateOfBirth, Age, DateOfAdmission, Password, Status });
         }
 
-        public int GetRS()
+        //public int GetRS()
+        //{
+        // int b=  (int)  db.ExecuteScalar("sp_GetRemainingStudents", new object[] { });
+        //    Universal.SID = b;
+        //    return b;
+        //}
+
+        public void UpdateStudentStatus(int id, string status)
         {
-         int b=  (int)  db.ExecuteScalar("sp_GetRemainingStudents", new object[] { });
-            Universal.SID = b;
-            return b;
+            db.ExecuteNonQuery("sp_UpdateStudentStatus", new object[] { id, status });
         }
-        
 
     }
 }

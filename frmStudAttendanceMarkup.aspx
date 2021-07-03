@@ -44,34 +44,41 @@
                     </tr>
                 </table>
                 <br />
-                <div>
+                <div style="height: 39px">
 
                     
                     <asp:Button ID="btn_load" runat="server" Text="Load" OnClick="btn_load_Click" class="btn btn-primary shadow px-5"/>
+                    &nbsp;
+                                                    
+                        <asp:Button ID="btn_save" runat="server" class="btn btn-primary shadow px-5" OnClick="btn_Save_Click" Text="Save"  />
                     <br />
 
                     
                     <br />
 
                     <div>
-                         <asp:Button ID="btn_Save" runat="server" Text="Save" class="btn btn-primary shadow px-5" OnClick="btn_Save_Click" />
                          <br />
                     </div>
                     <br />
 
                     
                 </div>
-                <asp:GridView ID="GridViewStudMarkup" runat="server"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" DataKeyNames="StudentID" style="margin-right: 1px" Width="436px">
+                <div class="text-center" style="height: 516px">
+                <asp:GridView ID="GridViewStudMarkup" runat="server"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" DataKeyNames="StudentID" style="margin-right: 1px" Width="487px" Height="512px">
                     <AlternatingRowStyle BackColor="#CCCCCC" />
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" SelectText="*" />
                         <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True" SortExpression="StudentID" />
                         <asp:BoundField DataField="StudentName" HeaderText="StudentName" SortExpression="StudentName" />
+                    
                         <asp:TemplateField HeaderText="Mark Attendance">
                             <ItemTemplate>
                                 <asp:RadioButton ID="rdbtn_present" runat="server" text="Present" GroupName="g1" />
                                
                                 <asp:RadioButton ID="rdbtn_absent" runat="server" Text="Absent" GroupName="g1" />
+                                
+                                <br />
+                                
+                                <br />
 
                             </ItemTemplate>
                             <FooterStyle HorizontalAlign="Center" />
@@ -88,10 +95,20 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
+                </div>
                 <br />
                 <br />
+                <div>
+                     <table class="table table-bordered table-primary">
+      <thead>
+					<tr>
+                        <th class="auto-style2">StudentID</th>
+						<th class="auto-style2">StudentName</th>
+                        <th class="auto-style1">DateDay</th>
+						<th class="auto-style1">Status</th>
+                        <th class="auto-style3">Actions</th>					</tr>				</thead >          <tbody>            <asp:Repeater runat="server" ID="rpt_StudentAttendanceDetail" >                <ItemTemplate>                    <tr>                         <td>                            <%#DataBinder.Eval(Container.DataItem,"StudentID") %>                        </td>                        <td>                            <%#DataBinder.Eval(Container.DataItem,"StudentName") %>                        </td>                        <td>                            <%#   DataBinder.Eval(Container.DataItem,"DateDay")%>                        </td>                        <td>                            <%#   DataBinder.Eval(Container.DataItem,"Status")%>                        </td>                                                                    </tr>                </ItemTemplate>            </asp:Repeater>        </tbody>    </table>                
+                </div>
 
-               
                 </div>
             </div>
          </div>

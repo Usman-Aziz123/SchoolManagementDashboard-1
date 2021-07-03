@@ -53,7 +53,7 @@
   <body>
       <header class="header">
             <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow">
-                <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="frmLogin.aspx" class="navbar-brand font-weight-bold text-uppercase text-base">Dashboard</a>
+                <a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="frmLogin.aspx" class="navbar-brand font-weight-bold text-uppercase text-base"></a>
                 <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
                     <li class="nav-item">
                         <div>
@@ -63,7 +63,7 @@
                     &nbsp;
                      <li class="nav-item">
                         <div>
-                          <asp:HyperLink ID="HyperLink4" runat="server" href="frmApplicant.aspx" CssClass="auto-style1" Font-Size="XX-Small">Online Admission</asp:HyperLink>
+                          <asp:HyperLink ID="HyperLink4" runat="server" href="frmOnlineAdmission.aspx" CssClass="auto-style1" Font-Size="XX-Small">Apply Admission Online</asp:HyperLink>
                         </div>
                         </li>
                     </ul>

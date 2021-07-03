@@ -55,6 +55,24 @@
       <HintPath>packages\DocumentFormat.OpenXml.2.12.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Practices.EnterpriseLibrary.Common.dll.3.1.0\lib\2.0\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Practices.ObjectBuilder.dll.3.1.0\lib\2.0\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Compression.Base, Version=18.3460.0.35, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.Compression.Base.18.3.0.35\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
     </Reference>
@@ -81,14 +99,24 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -165,8 +193,11 @@
     <Content Include="fonts\preview.html" />
     <Content Include="forms.html" />
     <Content Include="frmAdminLogin.aspx" />
+    <Content Include="frmApplicant.aspx" />
+    <Content Include="frmChangePassword.aspx" />
     <Content Include="frmFacultyLogin.aspx" />
     <Content Include="frmLogin.aspx" />
+    <Content Include="frmOnlineAdmission.aspx" />
     <Content Include="frmStudentLogin.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +210,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\2e12601a7eaebd7b62771fa9efc0df90.jpg" />
     <Content Include="Images\calendar.png" />
+    <Content Include="Images\check_noun_002_06440.jpg" />
+    <Content Include="Images\unnamed.png" />
     <Content Include="img\avatar-1.jpg" />
     <Content Include="img\avatar-2.jpg" />
     <Content Include="img\avatar-3.jpg" />
@@ -195,6 +228,19 @@
     <Content Include="license.txt" />
     <Content Include="login.html" />
     <Content Include="readme.txt" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="tables.html" />
     <Content Include="test.html" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
@@ -368,32 +414,44 @@
     <Content Include="frmExam.aspx" />
     <Content Include="frmCourse.aspx" />
     <Content Include="frmMain.aspx" />
-    <Content Include="frmStudAttendance.aspx" />
+    <Content Include="frmStudAttendanceMarkup.aspx" />
     <Content Include="frmStudCE.aspx" />
     <Content Include="frmFacultyAttendanceMarkup.aspx" />
     <Content Include="frmMarkSheet.aspx" />
     <Content Include="frmSession.aspx" />
     <Content Include="frmOpenSessionClass.aspx" />
     <Content Include="frmSection.aspx" />
-    <Content Include="frmViewOSC.aspx" />
+    <Content Include="frmViewDetails.aspx" />
     <Content Include="frmFaculty.aspx" />
     <Content Include="frmRemainingFaculty.aspx" />
     <Content Include="frmPayroll.aspx" />
     <Content Include="frmFacultyDetails.aspx" />
-    <Content Include="frmFacultyAttendanceData.aspx" />
-    <Content Include="frmRemainingStudents.aspx" />
-    <Content Include="School_ManagementDataSet.xsc">
-      <DependentUpon>School_ManagementDataSet.xsd</DependentUpon>
-    </Content>
-    <Content Include="frmStudentsReport.aspx" />
+    <Content Include="frmFacultyAttendanceReport.aspx" />
     <Content Include="frmFacultyReport.aspx" />
-    <None Include="School_ManagementDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>School_ManagementDataSet.Designer.cs</LastGenOutput>
+    <Content Include="frmStudentsReport.aspx" />
+    <Content Include="frmRemainingStudents.aspx" />
+    <Content Include="frmClassDetails.aspx" />
+    <Content Include="frmStudentsAttendanceReport.aspx" />
+    <Content Include="frmReportCurrentResult.aspx" />
+    <Content Include="frmSettings.aspx" />
+    <Content Include="frmApplicantReport.aspx" />
+    <Content Include="frmReportMarksheetforAdmin.aspx" />
+    <Content Include="frmLock.aspx" />
+    <Content Include="frmReportClassResults.aspx" />
+    <Content Include="frmPromoteStudents.aspx" />
+    <Content Include="frmReportResultHistory.aspx" />
+    <Content Include="WebServiceCascading.asmx" />
+    <Content Include="Resources\DataSets\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="libman.json" />
+    <None Include="Resources\DataSets\DataSet1.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="School_ManagementDataSet.xss">
-      <DependentUpon>School_ManagementDataSet.xsd</DependentUpon>
+    <Content Include="Resources\DataSets\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\file-search-1714164-1459187.png" />
@@ -448,6 +506,32 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmApplicant.aspx.cs">
+      <DependentUpon>frmApplicant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmApplicant.aspx.designer.cs">
+      <DependentUpon>frmApplicant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.aspx.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.aspx.designer.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOnlineAdmission.aspx.cs">
+      <DependentUpon>frmOnlineAdmission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOnlineAdmission.aspx.designer.cs">
+      <DependentUpon>frmOnlineAdmission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\DataSets\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,11 +571,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="School_ManagementDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>School_ManagementDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -506,13 +585,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SiteFaculty.Master.cs">
-      <DependentUpon>SiteFaculty.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SiteFaculty.Master.designer.cs">
-      <DependentUpon>SiteFaculty.Master</DependentUpon>
-    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -562,12 +635,12 @@
     <Compile Include="frmMain.aspx.designer.cs">
       <DependentUpon>frmMain.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmStudAttendance.aspx.cs">
-      <DependentUpon>frmStudAttendance.aspx</DependentUpon>
+    <Compile Include="frmStudAttendanceMarkup.aspx.cs">
+      <DependentUpon>frmStudAttendanceMarkup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmStudAttendance.aspx.designer.cs">
-      <DependentUpon>frmStudAttendance.aspx</DependentUpon>
+    <Compile Include="frmStudAttendanceMarkup.aspx.designer.cs">
+      <DependentUpon>frmStudAttendanceMarkup.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmStudCE.aspx.cs">
       <DependentUpon>frmStudCE.aspx</DependentUpon>
@@ -611,12 +684,12 @@
     <Compile Include="frmSection.aspx.designer.cs">
       <DependentUpon>frmSection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmViewOSC.aspx.cs">
-      <DependentUpon>frmViewOSC.aspx</DependentUpon>
+    <Compile Include="frmViewDetails.aspx.cs">
+      <DependentUpon>frmViewDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmViewOSC.aspx.designer.cs">
-      <DependentUpon>frmViewOSC.aspx</DependentUpon>
+    <Compile Include="frmViewDetails.aspx.designer.cs">
+      <DependentUpon>frmViewDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmFaculty.aspx.cs">
       <DependentUpon>frmFaculty.aspx</DependentUpon>
@@ -646,26 +719,12 @@
     <Compile Include="frmFacultyDetails.aspx.designer.cs">
       <DependentUpon>frmFacultyDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmFacultyAttendanceData.aspx.cs">
-      <DependentUpon>frmFacultyAttendanceData.aspx</DependentUpon>
+    <Compile Include="frmFacultyAttendanceReport.aspx.cs">
+      <DependentUpon>frmFacultyAttendanceReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmFacultyAttendanceData.aspx.designer.cs">
-      <DependentUpon>frmFacultyAttendanceData.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmRemainingStudents.aspx.cs">
-      <DependentUpon>frmRemainingStudents.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmRemainingStudents.aspx.designer.cs">
-      <DependentUpon>frmRemainingStudents.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmStudentsReport.aspx.cs">
-      <DependentUpon>frmStudentsReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmStudentsReport.aspx.designer.cs">
-      <DependentUpon>frmStudentsReport.aspx</DependentUpon>
+    <Compile Include="frmFacultyAttendanceReport.aspx.designer.cs">
+      <DependentUpon>frmFacultyAttendanceReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmFacultyReport.aspx.cs">
       <DependentUpon>frmFacultyReport.aspx</DependentUpon>
@@ -674,10 +733,100 @@
     <Compile Include="frmFacultyReport.aspx.designer.cs">
       <DependentUpon>frmFacultyReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmStudentsReport.aspx.cs">
+      <DependentUpon>frmStudentsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmStudentsReport.aspx.designer.cs">
+      <DependentUpon>frmStudentsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRemainingStudents.aspx.cs">
+      <DependentUpon>frmRemainingStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRemainingStudents.aspx.designer.cs">
+      <DependentUpon>frmRemainingStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmClassDetails.aspx.cs">
+      <DependentUpon>frmClassDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmClassDetails.aspx.designer.cs">
+      <DependentUpon>frmClassDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentsAttendanceReport.aspx.cs">
+      <DependentUpon>frmStudentsAttendanceReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmStudentsAttendanceReport.aspx.designer.cs">
+      <DependentUpon>frmStudentsAttendanceReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportCurrentResult.aspx.cs">
+      <DependentUpon>frmReportCurrentResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportCurrentResult.aspx.designer.cs">
+      <DependentUpon>frmReportCurrentResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.aspx.cs">
+      <DependentUpon>frmSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSettings.aspx.designer.cs">
+      <DependentUpon>frmSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmApplicantReport.aspx.cs">
+      <DependentUpon>frmApplicantReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmApplicantReport.aspx.designer.cs">
+      <DependentUpon>frmApplicantReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportMarksheetforAdmin.aspx.cs">
+      <DependentUpon>frmReportMarksheetforAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportMarksheetforAdmin.aspx.designer.cs">
+      <DependentUpon>frmReportMarksheetforAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLock.aspx.cs">
+      <DependentUpon>frmLock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLock.aspx.designer.cs">
+      <DependentUpon>frmLock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportClassResults.aspx.cs">
+      <DependentUpon>frmReportClassResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportClassResults.aspx.designer.cs">
+      <DependentUpon>frmReportClassResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPromoteStudents.aspx.cs">
+      <DependentUpon>frmPromoteStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPromoteStudents.aspx.designer.cs">
+      <DependentUpon>frmPromoteStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportResultHistory.aspx.cs">
+      <DependentUpon>frmReportResultHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmReportResultHistory.aspx.designer.cs">
+      <DependentUpon>frmReportResultHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServiceCascading.asmx.cs">
+      <DependentUpon>WebServiceCascading.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Students\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="WebService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -685,7 +834,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="vendor\jquery.cookie\component.json" />
     <Content Include="vendor\jquery.cookie\cookie.jquery.json" />
-    <Content Include="SiteFaculty.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -694,13 +842,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Reports\ReportApplicants.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportCurrentClassResults.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportMarksheetForAdmin.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportRemaingStudents.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportResultHistory.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportStudentAttendance.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportCurrentResult.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportRemainingFaculty.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportFacultyAttendance.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportFaculty.rdlc" />
+    <EmbeddedResource Include="Resources\Reports\ReportStudents.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\School_CL\School_CL.csproj">
       <Project>{209c4204-b3b9-4b0e-bc2c-a4b7ee59b6a7}</Project>
       <Name>School_CL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Reports\Report1.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

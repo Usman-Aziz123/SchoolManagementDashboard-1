@@ -25,14 +25,9 @@ namespace School_CL
             db.ExecuteNonQuery("sp_UpdateFAStatus", new object[] { id, fid, dd, status });
         }
 
-        public DataTable GetAbsesntDays()
+        public DataTable GetFacBYID(int id)
         {
-            return db.ExecuteDataSet("sp_GetFacAbsentDays").Tables[0];
-        }
-
-        public DataTable GetPresentDays(int fid, string month)
-        {
-            return db.ExecuteDataSet("sp_GetFacPresentDays",new object[] {fid,month }).Tables[0];
+         return   db.ExecuteDataSet("sp_GetFacultyAttendanceBYID", new object[] { id }).Tables[0];
         }
     }
 }

@@ -42,13 +42,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListfname;
 
         /// <summary>
-        /// DropDownListfname_CascadingDropDown control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CascadingDropDown DropDownListfname_CascadingDropDown;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -78,13 +78,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListClass;
 
         /// <summary>
-        /// DropDownListClass_CascadingDropDown control.
+        /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CascadingDropDown DropDownListClass_CascadingDropDown;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -114,13 +114,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSection;
 
         /// <summary>
-        /// DropDownListSection_CascadingDropDown control.
+        /// SqlDataSource3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CascadingDropDown DropDownListSection_CascadingDropDown;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -150,13 +150,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCourses;
 
         /// <summary>
-        /// DropDownListCourses_CascadingDropDown control.
+        /// SqlDataSource5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CascadingDropDown DropDownListCourses_CascadingDropDown;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
 
         /// <summary>
         /// RequiredFieldValidator4 control.

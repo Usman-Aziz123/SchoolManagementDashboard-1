@@ -11,36 +11,37 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <div>
                     <asp:Label ID="lbl_name" runat="server" Text="Faculty ID" ></asp:Label>
-                    <asp:DropDownList ID="DropDownListfname" runat="server" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
-                    <ajaxToolkit:CascadingDropDown ID="DropDownListfname_CascadingDropDown" runat="server" BehaviorID="DropDownListfname_CascadingDropDown" TargetControlID="DropDownListfname" Category="Faculty" LoadingText="Loading Faculty" PromptText="Select Faculty" ServiceMethod="BindRemainingFaculty" ServicePath="~/WebServiceCascading.asmx" />
+                    <asp:DropDownList ID="DropDownListfname" runat="server" class="form-control border-0 shadow form-control-lg text-violet" DataSourceID="SqlDataSource1" DataTextField="FacultyName" DataValueField="FacultyID" Width="450px"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT [FacultyID], [FacultyName] FROM [tbl_Faculty]"></asp:SqlDataSource>
                     </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownListfname" ErrorMessage="Faculty Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                 <div>
                     <asp:Label ID="lbl_class" runat="server" Text="Class Name" ></asp:Label>
-                    <asp:DropDownList ID="DropDownListClass" runat="server" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownListClass" runat="server" class="form-control border-0 shadow form-control-lg text-violet" DataSourceID="SqlDataSource2" DataTextField="ClassName" DataValueField="ClassID" Width="450px"></asp:DropDownList>
 
-                    <ajaxToolkit:CascadingDropDown ID="DropDownListClass_CascadingDropDown"  runat="server" Category="Class" BehaviorID="DropDownList1_CascadingDropDown" TargetControlID="DropDownListClass" LoadingText="Loading Class" PromptText="Select Class" ServiceMethod="BindAllClass" ServicePath="~/WebServiceCascading.asmx">
-                    </ajaxToolkit:CascadingDropDown>
+
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [tbl_Class]"></asp:SqlDataSource>
+
 
                 </div>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DropDownListClass" ErrorMessage="Class Required" ForeColor="Red"></asp:RequiredFieldValidator>
                  <br />
                 <div>
                     <asp:Label ID="lbl_section" runat="server" Text="Section Name" ></asp:Label>
-                    <asp:DropDownList ID="DropDownListSection" runat="server" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
+                    <asp:DropDownList ID="DropDownListSection" runat="server" class="form-control border-0 shadow form-control-lg text-violet" DataSourceID="SqlDataSource3" DataTextField="SectionName" DataValueField="SectionID" Width="450px"></asp:DropDownList>
 
-                     <ajaxToolkit:CascadingDropDown ID="DropDownListSection_CascadingDropDown" Category="Section" runat="server" BehaviorID="DropDownList2_CascadingDropDown" TargetControlID="DropDownListSection" LoadingText="Loading Section" PromptText="Select Section" ServiceMethod="BindAdmSection" ServicePath="~/WebServiceCascading.asmx" ParentControlID="DropDownListClass">
-                     </ajaxToolkit:CascadingDropDown>
+
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [tbl_Section]"></asp:SqlDataSource>
+
 
                 </div>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownListSection" ErrorMessage="Section Required" ForeColor="Red"></asp:RequiredFieldValidator>
                  <br />
                 <div>
                     <asp:Label ID="Label1" runat="server" Text="Courses"></asp:Label>
-                    <asp:DropDownList ID="DropDownListCourses" runat="server" class="form-control border-0 shadow form-control-lg text-violet"></asp:DropDownList>
-                    <ajaxToolkit:CascadingDropDown ID="DropDownListCourses_CascadingDropDown" Category="Courses" runat="server" BehaviorID="DropDownListCourses_CascadingDropDown" TargetControlID="DropDownListCourses" LoadingText="Loading Course" PromptText="Select Course" ServiceMethod="BindCourse" ServicePath="~/WebServiceCascading.asmx" ParentControlID="DropDownListSection" >
-                    </ajaxToolkit:CascadingDropDown>
+                    <asp:DropDownList ID="DropDownListCourses" runat="server" class="form-control border-0 shadow form-control-lg text-violet" DataSourceID="SqlDataSource5" DataTextField="CourseName" DataValueField="CourseID" Width="450px"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [tbl_Course]"></asp:SqlDataSource>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DropDownListCourses" ErrorMessage="Courses Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />

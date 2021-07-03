@@ -121,12 +121,30 @@
                      <asp:RequiredFieldValidator ID="RequiredFieldValidatorPass" runat="server" ErrorMessage="Password is Required" ControlToValidate="txt_pass" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <asp:Label ID="lbl_cnic" runat="server" Text="CNIC/B-Form"></asp:Label>
+                            <asp:TextBox ID="txt_cnic" runat="server" type="Cnic" placeholder="CNIC/B-Form" class="form-control border-0 shadow form-control-lg text-violet" MaxLength="15" Width="450px" Style="margin-bottom: 0.4em"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="CNICValidator" runat="server" ErrorMessage="CNIC/B-Form is Required" ControlToValidate="txt_cnic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <ajaxToolkit:MaskedEditExtender ID="txt_cnic_MaskedEditExtender" runat="server" BehaviorID="txt_cnic_MaskedEditExtender" Century="2000" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="" CultureDateFormat="" CultureDatePlaceholder="" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="" CultureTimePlaceholder="" Mask="99999-9999999-9" MaskType="Number" TargetControlID="txt_cnic" />
+
+
+                        </td>
                     </tr>
                 </table>
                 <br />
                   <div>
-                    <asp:Button ID="btn_save" class="btn btn-primary shadow px-5" runat="server" Text="Save" OnClick="btn_save_Click"  />
+                    
+                    <table class="w-100">
+                        <tr>
+                            <td style="width: 100px">
+                    <asp:Button ID="btn_save" runat="server" Text="Save" class="btn btn-primary shadow px-5" OnClick="btn_save_Click"  />
+                            </td>
+                            <td>
+               <asp:Button ID="btn_reset" class="btn btn-primary shadow px-5" runat="server" Text="Reset" OnClick="btn_reset_Click"  />
+
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
                 </div>
@@ -138,7 +156,7 @@
             <asp:GridView ID="GridViewFaculty" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="FacultyID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridViewFaculty_SelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
-                    <asp:CommandField SelectText="*" ShowSelectButton="True" />
+                    <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
                     <asp:BoundField DataField="FacultyID" HeaderText="FacultyID" ReadOnly="True" SortExpression="FacultyID" InsertVisible="False" />
                     <asp:BoundField DataField="FacultyName" HeaderText="FacultyName" SortExpression="FacultyName" />
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
@@ -151,6 +169,7 @@
                     <asp:BoundField DataField="JoinDate" HeaderText="JoinDate" SortExpression="JoinDate" />
                     <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                     <asp:BoundField DataField="IsVisiting" HeaderText="IsVisiting" SortExpression="IsVisiting" />
+                    <asp:BoundField DataField="Cnic" HeaderText="Cnic" SortExpression="Cnic" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

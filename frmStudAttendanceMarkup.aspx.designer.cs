@@ -87,13 +87,13 @@ namespace School_Dashboard
         protected global::System.Web.UI.WebControls.Button btn_load;
 
         /// <summary>
-        /// btn_Save control.
+        /// btn_save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Save;
+        protected global::System.Web.UI.WebControls.Button btn_save;
 
         /// <summary>
         /// GridViewStudMarkup control.
@@ -103,5 +103,14 @@ namespace School_Dashboard
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewStudMarkup;
+
+        /// <summary>
+        /// rpt_StudentAttendanceDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_StudentAttendanceDetail;
     }
 }

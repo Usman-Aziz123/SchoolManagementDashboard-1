@@ -51,12 +51,15 @@
                 <br />
                  <div class="form-group">
 
-                     <asp:GridView ID="GridViewClassDetails" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ClassDetailsID" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridViewClassDetails_SelectedIndexChanged">
+                     <asp:GridView ID="GridViewClassDetails" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ClassDetailsID,ClassID,SectionID" DataSourceID="SqlDataSource3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridViewClassDetails_SelectedIndexChanged">
                          <AlternatingRowStyle BackColor="#CCCCCC" />
                          <Columns>
+                             <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
                              <asp:BoundField DataField="ClassDetailsID" HeaderText="ClassDetailsID" InsertVisible="False" ReadOnly="True" SortExpression="ClassDetailsID" />
-                             <asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" />
-                             <asp:BoundField DataField="SectionID" HeaderText="SectionID" SortExpression="SectionID" />
+                             <asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" InsertVisible="False" ReadOnly="True" />
+                             <asp:BoundField DataField="ClassName" HeaderText="ClassName" SortExpression="ClassName" />
+                             <asp:BoundField DataField="SectionID" HeaderText="SectionID" InsertVisible="False" ReadOnly="True" SortExpression="SectionID" />
+                             <asp:BoundField DataField="SectionName" HeaderText="SectionName" SortExpression="SectionName" />
                          </Columns>
                          <FooterStyle BackColor="#CCCCCC" />
                          <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -67,7 +70,8 @@
                          <SortedDescendingCellStyle BackColor="#CAC9C9" />
                          <SortedDescendingHeaderStyle BackColor="#383838" />
                      </asp:GridView>
-                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [tbl_ClassSectionDetails]"></asp:SqlDataSource>
+                     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="Select cs.ClassDetailsID, c.ClassID,c.ClassName,sec.SectionID,sec.SectionName from tbl_ClassSectionDetails cs join tbl_Class c on c.ClassID=cs.ClassID 
+join tbl_Section sec on cs.SectionID=sec.SectionID"></asp:SqlDataSource>
                  </div>
 
                 </div>

@@ -43,14 +43,14 @@ namespace School_Dashboard
         [WebMethod(EnableSession = true)]
         public CascadingDropDownNameValue[] BindFacClass(string knownCategoryValues, string category)
         {
-            HttpContext context = HttpContext.Current;
+                HttpContext context = HttpContext.Current;
             string LoggedFacID = context.Session["LoggedFacultyID"].ToString();
 
 
 
             DataSet ds = new DataSet();
             conn.Open();
-            SqlCommand cmd = new SqlCommand("Select c.* From tbl_Class c inner join tbl_FacultyDetail fd On c.ClassID = fd.ClassID Where fd.FacultyID = " + LoggedFacID, conn);
+            SqlCommand cmd = new SqlCommand("Select Distinct c.* From tbl_Class c inner join tbl_FacultyDetail fd On c.ClassID = fd.ClassID Where fd.FacultyID = " + LoggedFacID, conn);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
             adp.Fill(ds);
@@ -66,15 +66,17 @@ namespace School_Dashboard
 
         }
         //Web method for bind state
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public CascadingDropDownNameValue[] BindFacSection(string knownCategoryValues, string category)
         {
+            HttpContext context = HttpContext.Current;
+            string LoggedFacID2 = context.Session["LoggedFacultyID"].ToString();
             DataSet ds = new DataSet();
             int ClassID;
             StringDictionary tbl_Class = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
             ClassID = Convert.ToInt32(tbl_Class["Class"]);
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select s.* from tbl_Section s join tbl_FacultyDetail fd on s.SectionID=fd.SectionID where fd.ClassID=@ClassID", conn);
+            SqlCommand cmd = new SqlCommand("select Distinct s.* from tbl_Section s join tbl_FacultyDetail fd on s.SectionID=fd.SectionID where fd.ClassID=@ClassID and fd.facultyID="+ LoggedFacID2, conn);
             cmd.Parameters.AddWithValue("@ClassID", ClassID);
             cmd.ExecuteNonQuery();
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
@@ -90,7 +92,7 @@ namespace School_Dashboard
             return tbl_Section.ToArray();
         }
         [WebMethod]
-        public CascadingDropDownNameValue[] BindAdmClass(string knownCategoryValues, string category)
+        public CascadingDropDownNameValue[] BindAllClass(string knownCategoryValues, string category)
         {
             DataSet ds = new DataSet();
             conn.Open();
@@ -154,40 +156,37 @@ namespace School_Dashboard
             return tbl_AdmCourse.ToArray();
         }
 
-        [WebMethod]
-        public CascadingDropDownNameValue[] BindAdmfac(string knownCategoryValues, string category)
-        {
-            DataSet ds = new DataSet();
-            int CourseID;
-            StringDictionary tbl_course = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
-            CourseID = Convert.ToInt32(tbl_course["Course"]);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("select f.FacultyID,f.FacultyName from tbl_Faculty f join tbl_FacultyDetail fd on f.FacultyID=fd.FacultyID where fd.CourseID=@CourseID ", conn);
-            cmd.Parameters.AddWithValue("@CourseID", CourseID);
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(ds);
-            conn.Close();
-            List<CascadingDropDownNameValue> tbl_AdmFacultyDetail = new List<CascadingDropDownNameValue>();
-            foreach (DataRow DR in ds.Tables[0].Rows)
-            {
-                string FacultyID = DR["FacultyID"].ToString();
-                string FacultyName = DR["FacultyName"].ToString();
-                tbl_AdmFacultyDetail.Add(new CascadingDropDownNameValue(FacultyName, FacultyID));
-            }
-            return tbl_AdmFacultyDetail.ToArray();
-        }
+        //[WebMethod]
+        //public CascadingDropDownNameValue[] BindAdmfac(string knownCategoryValues, string category)
+        //{
+        //    DataSet ds = new DataSet();
+        //    int CourseID;
+        //    StringDictionary tbl_course = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+        //    CourseID = Convert.ToInt32(tbl_course["Course"]);
+        //    conn.Open();
+        //    SqlCommand cmd = new SqlCommand("select f.FacultyID,f.FacultyName from tbl_Faculty f join tbl_FacultyDetail fd on f.FacultyID=fd.FacultyID where fd.CourseID=@CourseID ", conn);
+        //    cmd.Parameters.AddWithValue("@CourseID", CourseID);
+        //    cmd.ExecuteNonQuery();
+        //    SqlDataAdapter adp = new SqlDataAdapter(cmd);
+        //    adp.Fill(ds);
+        //    conn.Close();
+        //    List<CascadingDropDownNameValue> tbl_AdmFacultyDetail = new List<CascadingDropDownNameValue>();
+        //    foreach (DataRow DR in ds.Tables[0].Rows)
+        //    {
+        //        string FacultyID = DR["FacultyID"].ToString();
+        //        string FacultyName = DR["FacultyName"].ToString();
+        //        tbl_AdmFacultyDetail.Add(new CascadingDropDownNameValue(FacultyName, FacultyID));
+        //    }
+        //    return tbl_AdmFacultyDetail.ToArray();
+        //}
 
         [WebMethod]
-        public CascadingDropDownNameValue[] BindAdmSection1(string knownCategoryValues, string category)
+        public CascadingDropDownNameValue[] BindAllSection(string knownCategoryValues, string category)
         {
             DataSet ds = new DataSet();
-            int ClassID;
             StringDictionary tbl_Class = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
-            ClassID = Convert.ToInt32(tbl_Class["Class"]);
             conn.Open();
             SqlCommand cmd = new SqlCommand("select * from tbl_Section ", conn);
-            cmd.Parameters.AddWithValue("@ClassID", ClassID);
             cmd.ExecuteNonQuery();
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             adp.Fill(ds);
@@ -202,7 +201,101 @@ namespace School_Dashboard
             return tbl_Section.ToArray();
         }
 
-       
+        [WebMethod]
+        public CascadingDropDownNameValue[] BindRemainingFaculty(string knownCategoryValues, string category)
+        {
+            DataSet ds = new DataSet();
+            StringDictionary tbl_Class = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select f.FacultyID,f.FacultyName from tbl_Faculty f where f.FacultyID not in (Select tfc.FacultyID From tbl_FacultyDetail tfc) ", conn);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(ds);
+            conn.Close();
+            List<CascadingDropDownNameValue> tbl_rf = new List<CascadingDropDownNameValue>();
+            foreach (DataRow DR in ds.Tables[0].Rows)
+            {
+                string FacultyID = DR["FacultyID"].ToString();
+                string FacultyName = DR["FacultyName"].ToString();
+                tbl_rf.Add(new CascadingDropDownNameValue(FacultyName, FacultyID));
+            }
+            return tbl_rf.ToArray();
+        }
+        [WebMethod]
+        public CascadingDropDownNameValue[] BindRemainingStudents(string knownCategoryValues, string category)
+        {
+
+            {
+                DataSet ds = new DataSet();
+                StringDictionary tbl_Class = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select s.StudentID,s.StudentName from tbl_Student s where s.StudentID not in (Select tsc.StudentID From tbl_StudClassInfo tsc) ", conn);
+                cmd.ExecuteNonQuery();
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(ds);
+                conn.Close();
+                List<CascadingDropDownNameValue> tbl_sf = new List<CascadingDropDownNameValue>();
+                foreach (DataRow DR in ds.Tables[0].Rows)
+                {
+                    string StudentID = DR["StudentID"].ToString();
+                    string StudentName = DR["StudentName"].ToString();
+                    tbl_sf.Add(new CascadingDropDownNameValue(StudentName, StudentID));
+                }
+                return tbl_sf.ToArray();
+            }
+        }
+
+        [WebMethod]
+        public CascadingDropDownNameValue[] BindStudentSection(string knownCategoryValues, string category)
+        {
+            DataSet ds = new DataSet();
+            int SecID;
+            StringDictionary tbl_Class = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            SecID = Convert.ToInt32(tbl_Class["Section"]);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select s.* from tbl_student s join tbl_studclassinfo sci on s.studentid=sci.studentid where sectionid=@sectionid", conn);
+            cmd.Parameters.AddWithValue("@sectionid", SecID);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(ds);
+            conn.Close();
+            List<CascadingDropDownNameValue> tbl_stud = new List<CascadingDropDownNameValue>();
+            foreach (DataRow DR in ds.Tables[0].Rows)
+            {
+                string studentid = DR["studentid"].ToString();
+                string studentName = DR["studentName"].ToString();
+                tbl_stud.Add(new CascadingDropDownNameValue(studentName, studentid));
+            }
+            return tbl_stud.ToArray();
+        }
+        [WebMethod(EnableSession = true)]
+        public CascadingDropDownNameValue[] BindFacCourses(string knownCategoryValues, string category)
+        {
+
+            HttpContext context = HttpContext.Current;
+            string LoggedFacID1 = context.Session["LoggedFacultyID"].ToString();
+
+            DataSet ds = new DataSet();
+            int secid;
+            StringDictionary tbl_facultydetail = AjaxControlToolkit.CascadingDropDown.ParseKnownCategoryValuesString(knownCategoryValues);
+            secid = Convert.ToInt32(tbl_facultydetail["Faculty"]);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select distinct c.* from tbl_FacultyDetail fd join tbl_course c on fd.courseID=c.courseID where fd.facultyID="+ LoggedFacID1, conn);
+            cmd.Parameters.AddWithValue("@SectionID", secid);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(ds);
+            conn.Close();
+            List<CascadingDropDownNameValue> tbl_course = new List<CascadingDropDownNameValue>();
+            foreach (DataRow DR in ds.Tables[0].Rows)
+            {
+                string CourseID = DR["CourseID"].ToString();
+                string CourseName = DR["CourseName"].ToString();
+                tbl_course.Add(new CascadingDropDownNameValue(CourseName, CourseID));
+            }
+            return tbl_course.ToArray();
+        }
+
 
     }
 }

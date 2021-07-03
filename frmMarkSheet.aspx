@@ -10,12 +10,21 @@
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
                 <div>
+                    <asp:Label ID="Label5" runat="server" Text="Session"></asp:Label>
+                    <asp:DropDownList ID="DropDownListSession" runat="server" class="form-control border-0 shadow form-control-lg text-violet" Width="450px" DataSourceID="SqlDataSource2" DataTextField="SessionName" DataValueField="SessionID"></asp:DropDownList>
+
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="select * from tbl_Session where Iscurrent='true'"></asp:SqlDataSource>
+
+                </div>
+
+
+                <div>
                     <asp:Label ID="Label4" runat="server" Text="Exam"></asp:Label>
                     <asp:DropDownList ID="DropDownListExam" runat="server"  class="form-control border-0 shadow form-control-lg text-violet" Width="450px" DataSourceID="SqlDataSource1" DataTextField="ExamName" DataValueField="ExamID"></asp:DropDownList>
 
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SMSConnectionString %>" SelectCommand="select * from tbl_exam where iscurrent='true'"></asp:SqlDataSource>
 
-               <ajaxToolkit:CascadingDropDown ID="CascadingDropDown1" runat="server" Category="Class" BehaviorID="DropDownList1_CascadingDropDown" TargetControlID="DropDownListClass" LoadingText="Loading Class" PromptText="Select Class" ServiceMethod="BindFacClass" ServicePath="~/WebServiceCascading.asmx" />
+               <ajaxToolkit:CascadingDropDown ID="CascadingDropDown1" runat="server" Category="Class" BehaviorID="DropDownList1_CascadingDropDown" TargetControlID="DropDownListClass"  ServiceMethod="BindFacClass" ServicePath="~/WebServiceCascading.asmx" />
 
                 </div>
 
@@ -79,10 +88,17 @@
                 <br />
 
                 <div>
-                    <asp:Label ID="Label3" runat="server" Text="Marks" ></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Marks Obtained" ></asp:Label>
                     <asp:TextBox ID="txt_marks" runat="server" Width="450px" class="form-control border-0 shadow form-control-lg text-violet"></asp:TextBox>
-                    </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_marks" ErrorMessage="Marks Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </div>
+
+                <div>
+                    <asp:Label ID="Label6" runat="server" Text="Marks Out Of" ></asp:Label>
+                    <asp:TextBox ID="txt_total" runat="server" Width="450px" class="form-control border-0 shadow form-control-lg text-violet"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_total" ErrorMessage="Total Marks Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_marks" ControlToValidate="txt_total" ErrorMessage="it should be greater than Marks Obtained" ForeColor="Red" Operator="GreaterThan" Type="Double"></asp:CompareValidator>
+                    </div>
                 <br />
 
                 
@@ -121,9 +137,37 @@
 
                 </div>
 
+                <br />
+                <br />
+                <br />
+
             <br />
 
             <div>
+
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1162px">
+                    <AlternatingRowStyle BackColor="#CCCCCC" />
+                    <Columns>
+                        <asp:CommandField HeaderText="Select" SelectText="*" ShowSelectButton="True" />
+                        <asp:BoundField DataField="SessionID" HeaderText="SessionID" SortExpression="SessionID" InsertVisible="False" ReadOnly="True" />
+                        <asp:BoundField DataField="SessionName" HeaderText="SessionName" SortExpression="SessionName" />
+                        <asp:BoundField DataField="ExamID" HeaderText="ExamID" SortExpression="ExamID" InsertVisible="False" ReadOnly="True" />
+                        <asp:BoundField DataField="ExamName" HeaderText="ExamName" SortExpression="ExamName" />
+                        <asp:BoundField DataField="StudentID" HeaderText="StudentID" SortExpression="StudentID" />
+                        <asp:BoundField DataField="StudentName" HeaderText="StudentName" SortExpression="StudentName" />
+                        <asp:BoundField DataField="CourseID" HeaderText="CourseID" SortExpression="CourseID" />
+                        <asp:BoundField DataField="MarksObtained" HeaderText="MarksObtained" SortExpression="MarksObtained" />
+                        <asp:BoundField DataField="TotalMarks" HeaderText="TotalMarks" SortExpression="TotalMarks" />
+                    </Columns>
+                    <FooterStyle BackColor="#CCCCCC" />
+                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="Gray" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                </asp:GridView>
 
             </div>
 

@@ -6,7 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using School_CL;
 using System.Data;
-
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace School_Dashboard
 {
@@ -17,11 +18,7 @@ namespace School_Dashboard
         protected void Page_Load(object sender, EventArgs e)
         {
             cal_adm.Visible = false;
-            cal_dob.Visible = false;
-            lbl_month.Visible = false;
-            lbl_year.Visible = false;
-            DropDownMonth.Visible = false;
-            DropDownYear.Visible = false;
+            
             if (Universal.MasterAccess == false)
             {
 
@@ -85,21 +82,27 @@ namespace School_Dashboard
 
         protected void btn_save_Click(object sender, EventArgs e)
         {
-            var result = (" select * from tbl_student where cnic =" + txt_cnic.Text);
-            studentid = GridViewStudents.SelectedRow != null ? Convert.ToInt32(GridViewStudents.SelectedRow.Cells[1].Text) : 0;
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SMSConnectionString"].ConnectionString);
+            con.Open();
+            string result = "Select * from tbl_student where Cnic='" + txt_cnic.Text + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(result, con);
+            DataTable dt1 = new DataTable("table1");
+            da.Fill(dt1);
+            con.Close(); studentid = GridViewStudents.SelectedRow != null ? Convert.ToInt32(GridViewStudents.SelectedRow.Cells[1].Text) : 0;
 
             try
             {
                 if (IsValid)
                 {
-                    if (studentid != 0 && result == txt_cnic.Text)
+                    if (studentid != 0 )
                     {
                         //update
                         student.UpdateStudent(studentid, txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
 
                         Response.Write("<b>Data Updated<b>");
                     }
-                    else if (result != txt_cnic.Text)
+                    else if (dt1.Rows.Count == 0)
                     {
                         //add
                         student.InsertStudent(txt_sname.Text, txt_fname.Text, DropDownListGender.Text, txt_contact.Text, txt_address.Text, txt_cnic.Text, Convert.ToDateTime(txt_dob.Text), Convert.ToInt32(txt_age.Text), Convert.ToDateTime(txt_Admission.Text), txt_pass.Text, DropDownListStatus.Text);
@@ -202,12 +205,12 @@ namespace School_Dashboard
 
         protected void txt_age_TextChanged(object sender, EventArgs e)
         {
-            txt_dob.Text = txt_dob.Text;
-            DateTime from = Convert.ToDateTime(txt_dob.Text);
-            DateTime to = DateTime.Now;
-            TimeSpan ts = to - from;
-            int days = Convert.ToInt32(ts.TotalDays);
-            txt_age.Text = (days / 365).ToString();
+        //    txt_dob.Text = txt_dob.Text;
+        //    DateTime from = Convert.ToDateTime(txt_dob.Text);
+        //    DateTime to = DateTime.Now;
+        //    TimeSpan ts = to - from;
+        //    int days = Convert.ToInt32(ts.TotalDays);
+        //    txt_age.Text = (days / 365).ToString();
         }
 
         
@@ -266,6 +269,21 @@ namespace School_Dashboard
         {
             student.UpdateStudentStatus(Convert.ToInt32(Session["_Upd_ID"]), (DropDownListStatus.Text="InActive"));
             Response.Write("<script>alert('Status Updated')</script>");
+        }
+
+        protected void btn_reset_Click(object sender, EventArgs e)
+        {
+            txt_sname.Text = "";
+            txt_fname.Text = "";
+            txt_pass.Text = "";
+            txt_contact.Text = "";
+            txt_cnic.Text = "";
+            txt_age.Text = "";
+            txt_address.Text = "";
+            DropDownListGender.Text = "Default";
+            DropDownListStatus.Text = "Default";
+            txt_dob.Text = "";
+            txt_Admission.Text = "";
         }
     }
 }

@@ -23,9 +23,9 @@ namespace School_CL
             return db.ExecuteDataSet("sp_GetFacultyByID", new object[] { id }).Tables[0];
         }
 
-        public int InsertFaculty(string Name, string Address, string Contact, string Qual, string exp, string pass, string Gender, string Email, DateTime JoinDate, string Status, string vf)
+        public int InsertFaculty(string Name, string Address, string Contact, string Qual, string exp, string pass, string Gender, string Email, DateTime JoinDate, string Status, string vf,string cnic)
         {
-            int a = Convert.ToInt32(db.ExecuteScalar("sp_InsertFaculty", new object[] { Name, Address, Contact, Qual, exp, pass, Gender, Email, JoinDate, Status, vf }));
+            int a = Convert.ToInt32(db.ExecuteScalar("sp_InsertFaculty", new object[] { Name, Address, Contact, Qual, exp, pass, Gender, Email, JoinDate, Status, vf,cnic }));
             Universal.ID = GetInserted();
 
             return a;
@@ -36,9 +36,9 @@ namespace School_CL
             return a;
         }
 
-        public void UpdateFaculty(int id, string Name, string Address, string Contact, string Qual, string exp, string pass, string Gender, string Email, DateTime JD, string Status, string vf)
+        public void UpdateFaculty(int id, string Name, string Address, string Contact, string Qual, string exp, string pass, string Gender, string Email, DateTime JD, string Status, string vf, string cnic)
         {
-            db.ExecuteNonQuery("sp_UpdateFaculty", new object[] { id, Name, Address, Contact, Qual, exp, pass, Gender, Email, JD, Status, vf });
+            db.ExecuteNonQuery("sp_UpdateFaculty", new object[] { id, Name, Address, Contact, Qual, exp, pass, Gender, Email, JD, Status, vf,cnic });
         }
 
         public DataTable GetFacDetail(int fid,int cid, int secid, int corid)

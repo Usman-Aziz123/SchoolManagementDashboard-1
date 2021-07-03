@@ -12,7 +12,7 @@ namespace School_Dashboard
     public partial class WebForm2 : System.Web.UI.Page
     {
        clsStudClassINFO sci = new clsStudClassINFO();
-
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Universal.MasterAccess == false)
@@ -36,23 +36,13 @@ namespace School_Dashboard
 
         protected void btn_Save_Click(object sender, EventArgs e)
         {
+
             try
             {
-                if (Session["_Upd_ID"] != null )
-                {
-                    sci.UpdateStudClassInfo(Convert.ToInt32(Session["_Upd_ID"]), Convert.ToInt32(DropDownListsname.Text), Convert.ToInt32(DropDownListClass.SelectedValue.ToString()), Convert.ToInt32(DropDownListSection.SelectedValue.ToString()));
-                    Response.Write("<script>alert('Data Updated')</script>");
 
-                }
+                 sci.InsertStudClassInfo(Convert.ToInt32(DropDownListSession.Text), Convert.ToInt32(DropDownListsname.Text), Convert.ToInt32(DropDownListClass.SelectedValue.ToString()), Convert.ToInt32(DropDownListSection.SelectedValue.ToString()));
+                 Response.Write("<script>alert('Data Saved')</script>");
 
-                else  
-                {
-                    sci.InsertStudClassInfo(Convert.ToInt32(DropDownListsname.Text), Convert.ToInt32(DropDownListClass.SelectedValue.ToString()), Convert.ToInt32(DropDownListSection.SelectedValue.ToString()));
-                    Response.Write("<script>alert('Data Saved')</script>");
-
-                }
-                Session.Clear();
-                Session.Clear();
             }
             catch (Exception ex)
             {

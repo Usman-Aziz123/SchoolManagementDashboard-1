@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School Dashboard", "School Dashboard.csproj", "{B61B499E-9AF4-4C37-AD7F-A08CCBD1C585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School_CL", "..\School_CL\School_CL.csproj", "{209C4204-B3B9-4B0E-BC2C-A4B7EE59B6A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School_CL", "..\School_CL\School_CL.csproj", "{209C4204-B3B9-4B0E-BC2C-A4B7EE59B6A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,5 +27,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2075D4F6-AA1F-42B0-BB2B-DCD19C5F28F2}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
